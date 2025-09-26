@@ -1,8 +1,10 @@
 extends Area2D
 
 signal hit
+signal death
 
-@export var speed = 400
+@export var speed = 800
+@export var hp = 3
 
 var screen_size
 
@@ -32,11 +34,17 @@ func _process(delta: float) -> void:
 	
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
-	
-	
 
 
 func _on_body_entered(body: Node2D) -> void:
-	hide() 
 	hit.emit()
 	$CollisionShape2D.set_deferred("disabled", true)
+	$HitTimer.start()
+
+
+func _on_hit_timer_timeout() -> void:
+	$CollisionShape2D.set_deferred("disabled", false)
+
+
+func _on_death() -> void:
+	hide()

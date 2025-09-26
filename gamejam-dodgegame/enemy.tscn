@@ -7,7 +7,7 @@
 radius = 62.0
 height = 142.0
 
-[node name="Enemy" type="RigidBody2D"]
+[node name="Enemy" type="RigidBody2D" groups=["enemies"]]
 collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("1_4gyqm")

@@ -19,4 +19,8 @@ texture = ExtResource("1_ig7tw")
 position = Vector2(-95, -31)
 shape = SubResource("CircleShape2D_0xm2m")
 
+[node name="HitTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="death" from="." to="." method="_on_death"]
+[connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]
