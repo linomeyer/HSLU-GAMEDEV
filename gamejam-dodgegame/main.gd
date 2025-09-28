@@ -8,11 +8,13 @@ func _ready():
 
 func new_game():
 	score = 0
+	$Player.hp = $Player.maxhp
 	# remove all enemies from previous game
 	get_tree().call_group("enemies", "queue_free")
 	
 	$HUD.update_score(score)
 	$HUD.show_message("Get Ready")
+	$HUD.update_hp($Player.hp)
 	
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
@@ -51,8 +53,9 @@ func _on_start_timer_timeout() -> void:
 
 
 func _on_player_hit() -> void:
+	$Player.hp -= 1
+	$HUD.update_hp($Player.hp)
 	if($Player.hp > 0):
-		$Player.hp -= 1
 		print_debug("player hit: ", $Player.hp)
 	else:
 		$HUD.show_game_over()

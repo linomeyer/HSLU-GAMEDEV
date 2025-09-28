@@ -12,7 +12,7 @@ func show_game_over():
 	show_message("Game Over")
 	await $MessageTimer.timeout
 
-	$Message.text = "Dodge the Creeps!"
+	$Message.text = "Evade the enemies!\nUse WASD to move and SPACE to dash"
 	$Message.show()
 	await get_tree().create_timer(1.0).timeout
 	$StartButton.show()
@@ -20,6 +20,9 @@ func show_game_over():
 	
 func update_score(score):
 	$ScoreLabel.text = str(score)
+	
+func update_hp(hp: int) -> void:
+	$HPLabel.text = "HP: " + str(hp)
 
 func _on_message_timer_timeout() -> void:
 	$Message.hide()
