@@ -1,6 +1,11 @@
 extends CanvasLayer
 
 signal start_game
+signal dash_recharged
+
+func _process(delta):
+	$DashCooldown.value = $DashCooldownTimer.time_left * 50
+
 
 func show_message(text):
 	$Message.text = text
@@ -31,3 +36,13 @@ func _on_message_timer_timeout() -> void:
 func _on_start_button_pressed() -> void:
 	$StartButton.hide()
 	start_game.emit()
+
+
+func show_dash_timer():
+	$DashCooldown.show()
+	$DashCooldownTimer.start()
+
+
+func _on_dash_cooldown_timer_timeout() -> void:
+	$DashCooldown.hide()
+	dash_recharged.emit()

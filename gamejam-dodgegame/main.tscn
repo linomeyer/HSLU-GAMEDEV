@@ -19,6 +19,10 @@ enemy_scene = ExtResource("2_h2yge")
 
 [node name="EnemyTimer" type="Timer" parent="."]
 
+[node name="EnemyScaleTimer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+
 [node name="ScoreTimer" type="Timer" parent="."]
 
 [node name="StartTimer" type="Timer" parent="."]
@@ -35,8 +39,11 @@ curve = SubResource("Curve2D_7dm0k")
 
 [node name="HUD" parent="." instance=ExtResource("4_1bvp3")]
 
+[connection signal="has_dashed" from="Player" to="." method="_on_player_has_dashed"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_enemy_timer_timeout"]
+[connection signal="timeout" from="EnemyScaleTimer" to="." method="_on_enemy_scale_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="dash_recharged" from="HUD" to="." method="_on_dash_recharged"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]

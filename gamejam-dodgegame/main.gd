@@ -62,3 +62,19 @@ func _on_player_hit() -> void:
 		$Player.emit_signal("death")
 		$EnemyTimer.stop()
 		$ScoreTimer.stop()
+		
+
+
+func _on_player_has_dashed() -> void:
+	$HUD.show_dash_timer()
+	$Player.dash_on_cd = true
+
+
+func _on_dash_recharged() -> void:
+	$Player.dash_on_cd = false
+
+
+func _on_enemy_scale_timer_timeout() -> void:
+	if $EnemyTimer.wait_time > 0.2:
+		$EnemyTimer.wait_time -= 0.1
+		print_debug($EnemyTimer.wait_time)

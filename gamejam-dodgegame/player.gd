@@ -2,6 +2,7 @@ extends Area2D
 
 signal hit
 signal death
+signal has_dashed
 
 @export var hp = 3
 @export var maxhp = 3
@@ -9,6 +10,7 @@ signal death
 @export var speed = 800
 @export var dash_speed = 2000
 @export var dash_duration = 0.3
+@export var dash_on_cd = false
 
 var screen_size
 var velocity: Vector2 = Vector2.ZERO
@@ -52,11 +54,12 @@ func _process(delta: float) -> void:
 
 		velocity = velocity.normalized() * speed
 
-	if Input.is_action_just_pressed("dash") and not is_dashing and last_direction != Vector2.ZERO:
+	if Input.is_action_just_pressed("dash") and not is_dashing and last_direction != Vector2.ZERO and !dash_on_cd:
 		is_dashing = true
 		dash_timer = dash_duration
 		$CollisionShape2D.disabled = true
 		velocity = last_direction * dash_speed
+		has_dashed.emit()
 
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
