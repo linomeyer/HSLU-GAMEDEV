@@ -28,6 +28,7 @@ func _ready():
 func start(pos):
 	position = pos
 	show()
+	$Sprite2D.show()
 	$CollisionShape2D.disabled = false
 
 
@@ -69,6 +70,7 @@ func _on_body_entered(body: Node2D) -> void:
 	hit.emit()
 	$CollisionShape2D.set_deferred("disabled", true)
 	$HitTimer.start()
+	$HitFlashAnimationPlayer.play("hitFlash")
 
 
 func _on_hit_timer_timeout() -> void:
@@ -76,4 +78,5 @@ func _on_hit_timer_timeout() -> void:
 
 
 func _on_death() -> void:
-	hide()
+	$Sprite2D.hide()
+	$DeathExplosion.emitting = true
