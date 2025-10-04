@@ -403,3 +403,9 @@ tile_set = SubResource("TileSet_70uel")
 
 [node name="Player" parent="." instance=ExtResource("5_036b0")]
 position = Vector2(140, 84)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(140, 84)
