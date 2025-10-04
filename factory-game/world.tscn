@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=4 uid="uid://eof5uxifts3f"]
+[gd_scene load_steps=13 format=4 uid="uid://eof5uxifts3f"]
 
 [ext_resource type="Texture2D" uid="uid://cs72a36mky1yf" path="res://Assets/Tileset & Environment/Environment_Tileset.png" id="1_aqk2v"]
 [ext_resource type="Texture2D" uid="uid://vn6bnj888hrd" path="res://Assets/Tileset & Environment/Rocks.png" id="2_036b0"]
 [ext_resource type="Texture2D" uid="uid://c2j80j5rob822" path="res://Assets/Tileset & Environment/Tree.png" id="3_dwbse"]
 [ext_resource type="Texture2D" uid="uid://b1wvutxekupsj" path="res://Assets/Tileset & Environment/Full_Environment_Tileset.png" id="4_pkg7o"]
+[ext_resource type="PackedScene" uid="uid://drfbtp87yl6x5" path="res://player.tscn" id="5_036b0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbfbk"]
 texture = ExtResource("1_aqk2v")
@@ -399,3 +400,6 @@ tile_set = SubResource("TileSet_ioo17")
 [node name="resources" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AADy//T/AAAAAAYAAADy//X/AAAAAAcAAADy//b/AAAAAAgAAADz//T/AAABAAYAAADz//X/AAABAAcAAADz//b/AAABAAgAAAD0//T/AAACAAYAAAD0//X/AAACAAcAAAD0//b/AAACAAgAAADy//v/AAADAAYAAADy//z/AAADAAcAAADy//3/AAADAAgAAADz//v/AAAEAAYAAADz//z/AAAEAAcAAADz//3/AAAEAAgAAAD0//v/AAAFAAYAAAD0//z/AAAFAAcAAAD0//3/AAAFAAgAAADy/wIAAAAGAAYAAADy/wMAAAAGAAcAAADy/wQAAAAGAAgAAADz/wIAAAAHAAYAAADz/wMAAAAHAAcAAADz/wQAAAAHAAgAAAD0/wIAAAAIAAYAAAD0/wMAAAAIAAcAAAD0/wQAAAAIAAgAAAAPAAMAAAAJAAYAAAAPAAQAAAAJAAcAAAAPAAUAAAAJAAgAAAAQAAMAAAAKAAYAAAAQAAQAAAAKAAcAAAAQAAUAAAAKAAgAAAARAAMAAAALAAYAAAARAAQAAAALAAcAAAARAAUAAAALAAgAAAA=")
 tile_set = SubResource("TileSet_70uel")
+
+[node name="Player" parent="." instance=ExtResource("5_036b0")]
+position = Vector2(140, 84)
