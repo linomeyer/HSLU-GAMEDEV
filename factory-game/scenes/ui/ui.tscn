@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://1axno4wr1yqf"]
+
+[ext_resource type="Script" uid="uid://c3f2nkranuwgh" path="res://scenes/ui/ui.gd" id="1_u7n8c"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_u7n8c")
+
+[node name="AssemblerButton" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "assembler"
