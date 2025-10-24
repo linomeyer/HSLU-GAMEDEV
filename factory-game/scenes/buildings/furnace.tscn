@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://64yffnt38x66"]
+
+[ext_resource type="Texture2D" uid="uid://bhwd65x0bqwe4" path="res://Assets/Structures & Machines/Stone_Furnace.png" id="1_5qg16"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2isr"]
+size = Vector2(30, 46)
+
+[node name="Furnace" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5qg16")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_e2isr")

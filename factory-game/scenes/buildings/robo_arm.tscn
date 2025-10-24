@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bluysgj865ik8"]
+
+[ext_resource type="Texture2D" uid="uid://by1jeb42s10i1" path="res://Assets/Automation Components/robo-arm-single.PNG" id="1_um31y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vq5d2"]
+size = Vector2(29, 24)
+
+[node name="RoboArm" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_um31y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_vq5d2")

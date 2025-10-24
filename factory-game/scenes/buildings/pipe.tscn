@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6shgxo4y1v5n"]
+
+[ext_resource type="Texture2D" uid="uid://c4h65w72jrlyf" path="res://Assets/Automation Components/single-pipe.PNG" id="1_bepn3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78010"]
+size = Vector2(16, 10)
+
+[node name="Pipe" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bepn3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_78010")

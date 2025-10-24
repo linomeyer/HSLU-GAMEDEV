@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbfjlchv21utw"]
+
+[ext_resource type="Texture2D" uid="uid://beepp6ihcecxb" path="res://Assets/Structures & Machines/Water_Pump.png" id="1_1arlv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smmyg"]
+size = Vector2(48, 22)
+
+[node name="WaterPump" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1arlv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_smmyg")

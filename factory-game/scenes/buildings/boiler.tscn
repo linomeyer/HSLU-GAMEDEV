@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cimvnloqewjfa"]
+
+[ext_resource type="Texture2D" uid="uid://d2xa4jfq3dqtt" path="res://Assets/Structures & Machines/Boiler.png" id="1_um8p4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xx5p"]
+size = Vector2(64, 48)
+
+[node name="Boiler" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_um8p4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0xx5p")

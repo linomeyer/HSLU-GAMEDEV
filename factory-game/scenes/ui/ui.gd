@@ -1,12 +1,11 @@
 extends CanvasLayer
 
 @onready var assembler_button = $AssemblerButton
+@onready var hotbar = $Hotbar
 
-var build_controller: Node = null
+var selected = -1
 
-func _ready():
-	assembler_button.pressed.connect(_on_assembler_button_pressed)
 
-func _on_assembler_button_pressed():
-	if build_controller:
-		build_controller.start_building("assembler1")
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("1"):
+		hotbar.start_building(1)

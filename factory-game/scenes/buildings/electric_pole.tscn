@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjs7cxc5e4338"]
+
+[ext_resource type="Texture2D" uid="uid://pujpqpeq2m32" path="res://Assets/Automation Components/Electric_Pole.png" id="1_3kmq7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7khog"]
+radius = 5.0
+height = 50.0
+
+[node name="ElectricPole" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3kmq7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_7khog")

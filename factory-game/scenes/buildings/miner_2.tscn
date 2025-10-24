@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3wg2371w86fw"]
+
+[ext_resource type="Texture2D" uid="uid://dnc2cge0iawij" path="res://Assets/Structures & Machines/Miner_Machine_2.png" id="1_t8spr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n4h5e"]
+size = Vector2(42, 48)
+
+[node name="Miner2" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_t8spr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_n4h5e")
