@@ -1,11 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://de7vh5ocne55s"]
+[gd_scene load_steps=5 format=3 uid="uid://de7vh5ocne55s"]
 
 [ext_resource type="Texture2D" uid="uid://dj7ali1ah850v" path="res://Assets/Structures & Machines/Miner_Machine_1.png" id="1_vpit6"]
+[ext_resource type="Script" uid="uid://cypaky7kaqc5e" path="res://scenes/buildings/miner_1.gd" id="1_xas31"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smls4"]
 size = Vector2(31, 46)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xas31"]
+size = Vector2(31, 22)
+
 [node name="Miner1" type="Area2D"]
+script = ExtResource("1_xas31")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_vpit6")
@@ -13,3 +18,15 @@ texture = ExtResource("1_vpit6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_smls4")
+
+[node name="CollectionTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="BeltDetectionZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BeltDetectionZone"]
+position = Vector2(0.5, 35)
+shape = SubResource("RectangleShape2D_xas31")
+
+[connection signal="timeout" from="CollectionTimer" to="." method="_on_collection_timer_timeout"]
+[connection signal="area_entered" from="BeltDetectionZone" to="." method="_on_belt_detection_zone_area_entered"]

@@ -15,12 +15,20 @@ run/main_scene="uid://eof5uxifts3f"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://scenes/buildings/icon.svg"
 
+[autoload]
+
+SignalBus="*res://scripts/SignalBus.gd"
+
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/scale=4.0
+
+[global_group]
+
+belt=""
 
 [input]
 

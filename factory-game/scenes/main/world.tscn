@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://eof5uxifts3f"]
+[gd_scene load_steps=24 format=4 uid="uid://eof5uxifts3f"]
 
 [ext_resource type="Script" uid="uid://daf6jy4quk6tx" path="res://scenes/main/world.gd" id="1_7te0o"]
 [ext_resource type="Texture2D" uid="uid://cs72a36mky1yf" path="res://Assets/Tileset & Environment/Environment_Tileset.png" id="1_yshnf"]
@@ -7,7 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://b1wvutxekupsj" path="res://Assets/Tileset & Environment/Full_Environment_Tileset.png" id="4_smv1n"]
 [ext_resource type="PackedScene" uid="uid://drfbtp87yl6x5" path="res://scenes/main/player.tscn" id="5_ays12"]
 [ext_resource type="Script" uid="uid://6ytnlhh86rny" path="res://scripts/buildController.gd" id="6_3c7vn"]
+[ext_resource type="Texture2D" uid="uid://4onuiyjmoygm" path="res://Assets/Tileset & Environment/Coal_Tiles.png" id="6_xwd6a"]
 [ext_resource type="PackedScene" uid="uid://1axno4wr1yqf" path="res://scenes/ui/ui.tscn" id="7_1r2wy"]
+[ext_resource type="Texture2D" uid="uid://do1uyhaly1sii" path="res://Assets/Tileset & Environment/Iron_Ore_Tiles.png" id="7_sag5l"]
+[ext_resource type="Texture2D" uid="uid://by8fnitsldtv0" path="res://Assets/Tileset & Environment/Rock_Tiles.png" id="8_2p2jg"]
+[ext_resource type="Texture2D" uid="uid://cr32sus0wagd" path="res://Assets/Tileset & Environment/Copper_Tiles.PNG" id="9_r1or7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbfbk"]
 texture = ExtResource("1_yshnf")
@@ -387,11 +391,63 @@ texture = ExtResource("4_smv1n")
 16:1/0 = 0
 16:2/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0w3ym"]
+texture = ExtResource("6_xwd6a")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ailbm"]
+texture = ExtResource("7_sag5l")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3wopa"]
+texture = ExtResource("8_2p2jg")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bolsh"]
+texture = ExtResource("9_r1or7")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_70uel"]
 sources/0 = SubResource("TileSetAtlasSource_wse8f")
 sources/1 = SubResource("TileSetAtlasSource_ic0uy")
 sources/2 = SubResource("TileSetAtlasSource_k3n1d")
 sources/3 = SubResource("TileSetAtlasSource_2o6r5")
+sources/4 = SubResource("TileSetAtlasSource_0w3ym")
+sources/5 = SubResource("TileSetAtlasSource_ailbm")
+sources/6 = SubResource("TileSetAtlasSource_3wopa")
+sources/7 = SubResource("TileSetAtlasSource_bolsh")
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_7te0o")
@@ -402,7 +458,7 @@ tile_map_data = PackedByteArray("AAD6//v/AAABAAEAAAD6//z/AAABAAEAAAD6//3/AAABAAE
 tile_set = SubResource("TileSet_ioo17")
 
 [node name="resources" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AADy//T/AAAAAAYAAADy//X/AAAAAAcAAADy//b/AAAAAAgAAADz//T/AAABAAYAAADz//X/AAABAAcAAADz//b/AAABAAgAAAD0//T/AAACAAYAAAD0//X/AAACAAcAAAD0//b/AAACAAgAAADy//v/AAADAAYAAADy//z/AAADAAcAAADy//3/AAADAAgAAADz//v/AAAEAAYAAADz//z/AAAEAAcAAADz//3/AAAEAAgAAAD0//v/AAAFAAYAAAD0//z/AAAFAAcAAAD0//3/AAAFAAgAAADy/wIAAAAGAAYAAADy/wMAAAAGAAcAAADy/wQAAAAGAAgAAADz/wIAAAAHAAYAAADz/wMAAAAHAAcAAADz/wQAAAAHAAgAAAD0/wIAAAAIAAYAAAD0/wMAAAAIAAcAAAD0/wQAAAAIAAgAAAAPAAMAAAAJAAYAAAAPAAQAAAAJAAcAAAAPAAUAAAAJAAgAAAAQAAMAAAAKAAYAAAAQAAQAAAAKAAcAAAAQAAUAAAAKAAgAAAARAAMAAAALAAYAAAARAAQAAAALAAcAAAARAAUAAAALAAgAAAA=")
+tile_map_data = PackedByteArray("AADy/wMABAAAAAAAAADy/wQABAAAAAEAAADy/wUABAAAAAIAAADz/wMABAABAAAAAADz/wQABAABAAEAAADz/wUABAABAAIAAAD0/wMABAACAAAAAAD0/wQABAACAAEAAAD0/wUABAACAAIAAADy//3/BwAAAAAAAADy//7/BwAAAAEAAADy////BwAAAAIAAADz//3/BwABAAAAAADz//7/BwABAAEAAADz////BwABAAIAAAD0//3/BwACAAAAAAD0//7/BwACAAEAAAD0////BwACAAIAAADy//b/BgAAAAAAAADy//f/BgAAAAEAAADy//j/BgAAAAIAAADz//b/BgABAAAAAADz//f/BgABAAEAAADz//j/BgABAAIAAAD0//b/BgACAAAAAAD0//f/BgACAAEAAAD0//j/BgACAAIAAAANAAEABQAAAAAAAAANAAIABQAAAAEAAAANAAMABQAAAAIAAAAOAAEABQABAAAAAAAOAAIABQABAAEAAAAOAAMABQABAAIAAAAPAAEABQACAAAAAAAPAAIABQACAAEAAAAPAAMABQACAAIAAAA=")
 tile_set = SubResource("TileSet_70uel")
 
 [node name="Player" parent="." instance=ExtResource("5_ays12")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://1axno4wr1yqf"]
+[gd_scene load_steps=13 format=3 uid="uid://1axno4wr1yqf"]
 
 [ext_resource type="Script" uid="uid://c3f2nkranuwgh" path="res://scenes/ui/ui.gd" id="1_u7n8c"]
 [ext_resource type="Texture2D" uid="uid://f7co3ia1trj1" path="res://Assets/Structures & Machines/Assembler_Machine_1.png" id="2_4kltc"]
@@ -11,9 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://bhwd65x0bqwe4" path="res://Assets/Structures & Machines/Stone_Furnace.png" id="9_4w2x3"]
 [ext_resource type="Texture2D" uid="uid://beepp6ihcecxb" path="res://Assets/Structures & Machines/Water_Pump.png" id="10_svq4k"]
 [ext_resource type="Texture2D" uid="uid://d2xa4jfq3dqtt" path="res://Assets/Structures & Machines/Boiler.png" id="11_ygedu"]
-[ext_resource type="Script" uid="uid://6ytnlhh86rny" path="res://scripts/buildController.gd" id="12_hl07w"]
 
 [sub_resource type="FontFile" id="FontFile_4kltc"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/11/0/ascent = 0.0
 cache/0/11/0/descent = 0.0
 cache/0/11/0/underline_position = 0.0
@@ -28,12 +30,6 @@ cache/0/16/0/scale = 1.0
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_u7n8c")
 
-[node name="AssemblerButton" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
-size_flags_vertical = 8
-text = "assembler"
-
 [node name="Hotbar" type="ItemList" parent="."]
 anchors_preset = 7
 anchor_left = 0.5
@@ -42,7 +38,7 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -170.0
 offset_top = -39.0
-offset_right = 170.0
+offset_right = 172.0
 offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -71,4 +67,3 @@ item_8/text = "9"
 item_8/icon = ExtResource("10_svq4k")
 item_9/text = "0"
 item_9/icon = ExtResource("11_ygedu")
-script = ExtResource("12_hl07w")
