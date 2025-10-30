@@ -2,8 +2,8 @@ extends Node2D
 
 @export var buildings: Dictionary = {
 	1: preload("res://scenes/buildings/assembler_1.tscn"),
-	2: preload("res://scenes/buildings/conveyor_belt.tscn"),
-	3: preload("res://scenes/buildings/electric_pole.tscn"),
+	2: preload("res://scenes/conveyor/conveyor.tscn"),
+	3: preload("res://scenes/conveyor/giver.tscn"),
 	4: preload("res://scenes/buildings/pipe.tscn"),
 	5: preload("res://scenes/buildings/robo_arm.tscn"),
 	6: preload("res://scenes/buildings/miner_1.tscn"),
@@ -58,7 +58,12 @@ func stop_building():
 	current_building_index = -1
 
 func place_building(building_index: int):
-	var new_building = current_building_scene.instantiate()
-	new_building.global_position = preview_instance.global_position
-	new_building.global_rotation_degrees = preview_instance.global_rotation_degrees
-	get_parent().get_node("BuildingsRoot").add_child(new_building)
+	if (current_building_index == 1 or current_building_index == 2):
+		var new_building = current_building_scene.instantiate()
+		new_building.global_position = preview_instance.global_position
+		get_parent().get_node("BuildingsRoot").add_child(new_building)
+	else:
+		var new_building = current_building_scene.instantiate()
+		new_building.global_position = preview_instance.global_position
+		new_building.global_rotation_degrees = preview_instance.global_rotation_degrees
+		get_parent().get_node("BuildingsRoot").add_child(new_building)

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c3f2nkranuwgh" path="res://scenes/ui/ui.gd" id="1_u7n8c"]
 [ext_resource type="Texture2D" uid="uid://f7co3ia1trj1" path="res://Assets/Structures & Machines/Assembler_Machine_1.png" id="2_4kltc"]
-[ext_resource type="Texture2D" uid="uid://c14hmoppf841t" path="res://Assets/Automation Components/conveyor-straight.PNG" id="3_hl07w"]
-[ext_resource type="Texture2D" uid="uid://pujpqpeq2m32" path="res://Assets/Automation Components/Electric_Pole.png" id="4_swkix"]
+[ext_resource type="Texture2D" uid="uid://b0d6ovpcryjqu" path="res://Assets/Automation Components/conveyor_thumbnail.PNG" id="3_4kltc"]
+[ext_resource type="Texture2D" uid="uid://bj85rhui2nibx" path="res://Assets/Automation Components/item_giver.png" id="4_4kltc"]
 [ext_resource type="Texture2D" uid="uid://c4h65w72jrlyf" path="res://Assets/Automation Components/single-pipe.PNG" id="5_hc5d0"]
 [ext_resource type="Texture2D" uid="uid://by1jeb42s10i1" path="res://Assets/Automation Components/robo-arm-single.PNG" id="6_n3vwu"]
 [ext_resource type="Texture2D" uid="uid://dj7ali1ah850v" path="res://Assets/Structures & Machines/Miner_Machine_1.png" id="7_0i47d"]
@@ -50,9 +50,9 @@ icon_scale = 0.5
 item_0/text = "1"
 item_0/icon = ExtResource("2_4kltc")
 item_1/text = "2"
-item_1/icon = ExtResource("3_hl07w")
+item_1/icon = ExtResource("3_4kltc")
 item_2/text = "3"
-item_2/icon = ExtResource("4_swkix")
+item_2/icon = ExtResource("4_4kltc")
 item_3/text = "4"
 item_3/icon = ExtResource("5_hc5d0")
 item_4/text = "5"
