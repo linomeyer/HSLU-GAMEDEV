@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://eof5uxifts3f"]
+[gd_scene load_steps=25 format=4 uid="uid://eof5uxifts3f"]
 
 [ext_resource type="Script" uid="uid://daf6jy4quk6tx" path="res://scenes/main/world.gd" id="1_7te0o"]
 [ext_resource type="Texture2D" uid="uid://cs72a36mky1yf" path="res://Assets/Tileset & Environment/Environment_Tileset.png" id="1_yshnf"]
@@ -12,8 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://do1uyhaly1sii" path="res://Assets/Tileset & Environment/Iron_Ore_Tiles.png" id="7_sag5l"]
 [ext_resource type="Texture2D" uid="uid://by8fnitsldtv0" path="res://Assets/Tileset & Environment/Rock_Tiles.png" id="8_2p2jg"]
 [ext_resource type="Texture2D" uid="uid://cr32sus0wagd" path="res://Assets/Tileset & Environment/Copper_Tiles.PNG" id="9_r1or7"]
-[ext_resource type="PackedScene" uid="uid://cjbncrg4v70y6" path="res://scenes/conveyor/giver.tscn" id="13_2p2jg"]
-[ext_resource type="PackedScene" uid="uid://cl143se62go3d" path="res://scenes/conveyor/conveyor.tscn" id="14_r1or7"]
+[ext_resource type="PackedScene" uid="uid://ddh6l04cad4tk" path="res://scenes/conveyor-2/Building/builder.tscn" id="13_sag5l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbfbk"]
 texture = ExtResource("1_yshnf")
@@ -480,22 +479,4 @@ script = ExtResource("6_3c7vn")
 
 [node name="UI" parent="." instance=ExtResource("7_1r2wy")]
 
-[node name="Giver" parent="." instance=ExtResource("13_2p2jg")]
-position = Vector2(-22, -20)
-
-[node name="Conveyor" parent="." instance=ExtResource("14_r1or7")]
-position = Vector2(-38, -20)
-to_direction = 3
-
-[node name="Conveyor2" parent="." instance=ExtResource("14_r1or7")]
-position = Vector2(-38, -4)
-from_direction = 2
-
-[node name="Conveyor3" parent="." instance=ExtResource("14_r1or7")]
-position = Vector2(-54, 12)
-to_direction = 3
-from_direction = 2
-
-[node name="Conveyor4" parent="." instance=ExtResource("14_r1or7")]
-position = Vector2(-54, -4)
-to_direction = 3
+[node name="Builder" parent="." instance=ExtResource("13_sag5l")]

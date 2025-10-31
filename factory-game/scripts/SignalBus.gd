@@ -1,3 +1,3 @@
 extends Node
 
-signal belt_attached(resource: Constants.ResourceType)
+signal belt_attached(resource: Enums.ResourceType)

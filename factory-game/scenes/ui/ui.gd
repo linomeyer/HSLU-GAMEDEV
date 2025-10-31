@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-@onready var assembler_button = $AssemblerButton
 @onready var hotbar = $Hotbar
 @onready var build_controller = load("res://scripts/buildController.gd")
 
