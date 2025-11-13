@@ -26,6 +26,9 @@ func determine_from_direction():
 	from_direction = from_controller.get_from_direction(to_direction)
 
 func set_direction():
+	print("set sprite frame to:")
+	print(to_direction)
+	print(from_direction)
 	sprite.set_sprite_frame(to_direction, from_direction)
 
 func _ready():
@@ -49,6 +52,7 @@ func _on_conveyor_inventory_item_held():
 
 
 func _on_from_direction_controller_direction_changed():
+	print("from direction")
 	determine_from_direction()
 	set_direction()
 

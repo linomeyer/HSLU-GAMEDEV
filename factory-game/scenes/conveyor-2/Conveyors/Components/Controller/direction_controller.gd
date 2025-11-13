@@ -8,6 +8,7 @@ var indexes := {Enums.Direction.Left: 0, Enums.Direction.Up: 1, Enums.Direction.
 
 func set_directions(directions: Array[Enums.Direction]) -> void:
 	to_directions = directions
+	print("directions changed")
 	emit_signal("directions_changed", to_directions)
 
 func get_directions() -> Array[Enums.Direction]:

@@ -1,4 +1,4 @@
 extends Node
 
 
-const grid_size = 32
+const grid_size = 16

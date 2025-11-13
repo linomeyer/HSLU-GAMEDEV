@@ -40,4 +40,6 @@ func _on_timer_timeout():
 
 
 func _on_direction_controller_directions_changed(to_directions):
+	print("listener")
+	
 	$ConveyorDetectors.set_directions(to_directions)

@@ -13,6 +13,8 @@ func _ready() -> void:
 	establish_detectors()
 
 func set_directions(new_directions) -> void:
+	print("new directions")
+	print(new_directions)
 	for child in get_children():
 		child.queue_free()
 	directions = new_directions

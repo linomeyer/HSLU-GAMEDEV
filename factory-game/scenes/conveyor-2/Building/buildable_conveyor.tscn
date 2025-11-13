@@ -13,7 +13,6 @@ script = ExtResource("1_hijxq")
 [node name="FromDirectionController" parent="." instance=ExtResource("2_6rkwo")]
 
 [node name="ConveyorSpriteController" parent="." instance=ExtResource("3_fbka4")]
-texture = null
 
 [node name="DirectionController" parent="." instance=ExtResource("4_xiq1p")]
 monitorable = false

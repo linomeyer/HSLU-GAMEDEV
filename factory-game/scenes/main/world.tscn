@@ -480,4 +480,3 @@ zoom = Vector2(0.6, 0.6)
 script = ExtResource("6_3c7vn")
 
 [node name="Builder" parent="." instance=ExtResource("13_sag5l")]
-top_level = true

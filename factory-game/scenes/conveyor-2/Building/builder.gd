@@ -4,27 +4,33 @@ extends Node2D
 @export var alpha = 128
 @onready var building : Buildable = $BuildableConveyor
 var last_location
+var is_building = false
 
 func _ready():
 	available_color.a = alpha
 	taken_color.a = alpha
 	modulate = available_color
+	
+
+func start_building():
+	is_building = true
 
 func _physics_process(_delta):
-	var pos = get_global_mouse_position()
-	var location = Vector2(int(pos.x/Constants.grid_size), int(pos.y/Constants.grid_size)) * Constants.grid_size
-	if last_location == location:
-		return
-	global_position = location
-	if building.can_place(location):
-		modulate = available_color
-	else:
-		modulate = taken_color
-	if last_location == null:
-		last_location = location
-	if Input.is_action_just_pressed("rotate"):
-		building.rotate_clockwise()
-	if Input.is_action_pressed("left_click"):
-		print("build")
+	if is_building:
+		var pos = get_global_mouse_position()
+		var location = Vector2(int(pos.x/Constants.grid_size), int(pos.y/Constants.grid_size)) * Constants.grid_size
+		if last_location == location:
+			return
+		global_position = location
 		if building.can_place(location):
-			building.place(location)
+			modulate = available_color
+		else:
+			modulate = taken_color
+		if last_location == null:
+			last_location = location
+		if Input.is_action_just_pressed("rotate"):
+			building.rotate_clockwise()
+		if Input.is_action_pressed("left_click"):
+			if building.can_place(location):
+				building.place(location)
+				

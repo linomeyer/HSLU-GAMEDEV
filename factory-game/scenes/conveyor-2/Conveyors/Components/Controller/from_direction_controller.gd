@@ -17,6 +17,8 @@ func emit_change():
 	emit_signal("direction_changed")
 
 func get_from_direction(to_direction: Enums.Direction):
+	print("get from direction: ")
+	print(to_direction)
 	var right = get_directions(Enums.Direction.Right)
 	var left = get_directions(Enums.Direction.Left)
 	var down = get_directions(Enums.Direction.Down)
