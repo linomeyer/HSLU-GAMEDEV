@@ -21,7 +21,6 @@ hframes = 2
 vframes = 2
 
 [node name="DirectionController" parent="." instance=ExtResource("3_6pgd1")]
-script = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DirectionController"]
 shape = SubResource("RectangleShape2D_eugsw")
@@ -33,5 +32,6 @@ shape = SubResource("RectangleShape2D_gnggp")
 
 [node name="ConveyorDetectors" parent="." instance=ExtResource("5_ta67d")]
 
+[connection signal="directions_changed" from="DirectionController" to="." method="_on_direction_controller_directions_changed"]
 [connection signal="item_held" from="ConveyorInventory" to="." method="_on_conveyor_inventory_item_held"]
 [connection signal="inventory_found" from="ConveyorDetectors" to="." method="_on_conveyor_detectors_inventory_found"]

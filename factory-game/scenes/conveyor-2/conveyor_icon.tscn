@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2ntj0bubb153" path="res://scenes/conveyor-2/ConveyorIcon.gd" id="1_3r167"]
 [ext_resource type="Texture2D" uid="uid://n2t1qwlu5f27" path="res://Assets/Automation Components/conveyors.png" id="2_u1khh"]
-[ext_resource type="PackedScene" uid="uid://b5eggbf7o14bu" path="res://scenes/conveyor-2/conveyor_icon.tscn" id="3_fcpuv"]
+[ext_resource type="PackedScene" uid="uid://cfwfejmwtkwmg" path="res://scenes/conveyor-2/Conveyors/belt.tscn" id="3_fcpuv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2mpna"]
 size = Vector2(16, 16)

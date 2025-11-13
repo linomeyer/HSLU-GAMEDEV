@@ -4,7 +4,6 @@ var to_direction: Enums.Direction = Enums.Direction.Left
 var from_direction: Enums.Direction = Enums.Direction.Right
 var conveyor = preload("res://scenes/conveyor-2/Conveyors/belt.tscn")
 
-@onready var direction_controller = $DirectionController
 
 func _ready(): 
 	var directions: Array[Enums.Direction] = [to_direction]
@@ -15,7 +14,7 @@ func update_to_direction(to_directions: Array[Enums.Direction]):
 	determine_from_direction()
 	$ConveyorSpriteController.set_sprite_frame(to_direction, from_direction)
 
-func rotate_clockwise():
+func rotate_clockwise(): 
 	$DirectionController.rotate_right()
 
 func rotate_counter():

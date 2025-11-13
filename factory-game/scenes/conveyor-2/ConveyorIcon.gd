@@ -9,11 +9,13 @@ var to_direction = Enums.Direction.Right
 var from_direction = Enums.Direction.Left
 var areas_entered = 0
 @onready var sprite = $Sprite2D
-@onready var adjacent_conveyors = $AdjacentConveyors
+#@onready var adjacent_conveyors = $AdjacentConveyors
 var initial_location
 var handled_tiles = []
-func determine_from_direction():
-	from_direction = adjacent_conveyors.get_from_direction(to_direction)
+
+
+#func determine_from_direction():
+#	from_direction = adjacent_conveyors.get_from_direction(to_direction)
 
 func set_direction(): 
 	sprite.frame = Conveyor.get_sprite_frame(to_direction, from_direction)
@@ -50,7 +52,7 @@ func _physics_process(_delta):
 	if Input.is_action_just_released("left click"):
 		initial_location = null
 		handled_tiles = []
-	determine_from_direction()
+	#determine_from_direction()
 	set_direction()
 
 func place(location: Vector2):

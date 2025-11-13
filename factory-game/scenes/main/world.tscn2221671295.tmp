@@ -6,12 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://c2j80j5rob822" path="res://Assets/Tileset & Environment/Tree.png" id="3_7te0o"]
 [ext_resource type="Texture2D" uid="uid://b1wvutxekupsj" path="res://Assets/Tileset & Environment/Full_Environment_Tileset.png" id="4_smv1n"]
 [ext_resource type="PackedScene" uid="uid://drfbtp87yl6x5" path="res://scenes/main/player.tscn" id="5_ays12"]
-[ext_resource type="Script" uid="uid://6ytnlhh86rny" path="res://scripts/buildController.gd" id="6_3c7vn"]
 [ext_resource type="Texture2D" uid="uid://4onuiyjmoygm" path="res://Assets/Tileset & Environment/Coal_Tiles.png" id="6_xwd6a"]
 [ext_resource type="PackedScene" uid="uid://1axno4wr1yqf" path="res://scenes/ui/ui.tscn" id="7_1r2wy"]
 [ext_resource type="Texture2D" uid="uid://do1uyhaly1sii" path="res://Assets/Tileset & Environment/Iron_Ore_Tiles.png" id="7_sag5l"]
 [ext_resource type="Texture2D" uid="uid://by8fnitsldtv0" path="res://Assets/Tileset & Environment/Rock_Tiles.png" id="8_2p2jg"]
 [ext_resource type="Texture2D" uid="uid://cr32sus0wagd" path="res://Assets/Tileset & Environment/Copper_Tiles.PNG" id="9_r1or7"]
+[ext_resource type="PackedScene" uid="uid://ddh6l04cad4tk" path="res://scenes/conveyor-2/Building/builder.tscn" id="13_sag5l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbfbk"]
 texture = ExtResource("1_yshnf")
@@ -475,5 +475,5 @@ zoom = Vector2(0.6, 0.6)
 
 [node name="UI" parent="." instance=ExtResource("7_1r2wy")]
 
-[node name="BuildController" type="Node2D" parent="."]
-script = ExtResource("6_3c7vn")
+[node name="Builder" parent="." instance=ExtResource("13_sag5l")]
+z_index = 1

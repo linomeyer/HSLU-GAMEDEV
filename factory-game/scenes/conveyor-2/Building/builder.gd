@@ -25,5 +25,6 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("rotate"):
 		building.rotate_clockwise()
 	if Input.is_action_pressed("left_click"):
+		print("build")
 		if building.can_place(location):
 			building.place(location)
