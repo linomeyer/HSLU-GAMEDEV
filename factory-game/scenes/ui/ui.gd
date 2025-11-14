@@ -2,7 +2,6 @@ extends CanvasLayer
 
 @onready var hotbar = $Hotbar
 @onready var build_controller = load("res://scripts/buildController.gd")
-@onready var conveyor_builder = load("res://scenes/conveyor-2/Building/builder.tscn")
 
 var selected = -1
 
@@ -10,7 +9,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("one"):
 		build_controller.start_building(1)
 	if Input.is_action_just_pressed("two"):
-		conveyor_builder.start_building()
+		build_controller.start_building(2)
 	if Input.is_action_just_pressed("three"):
 		build_controller.start_building(3)
 	if Input.is_action_just_pressed("four"):

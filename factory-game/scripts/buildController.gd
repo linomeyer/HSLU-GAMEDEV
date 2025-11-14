@@ -2,8 +2,8 @@ extends Node2D
 
 @export var buildings: Dictionary = {
 	1: preload("res://scenes/buildings/assembler_1.tscn"),
-	2: preload("res://scenes/conveyor-2/Conveyors/belt.tscn"),
-	3: preload("res://scenes/conveyor-2/Conveyors/generator.tscn"),
+	2: null,
+	3: null,
 	4: preload("res://scenes/buildings/pipe.tscn"),
 	5: preload("res://scenes/buildings/robo_arm.tscn"),
 	6: preload("res://scenes/buildings/miner_1.tscn"),

@@ -17,11 +17,8 @@ config/icon="res://scenes/buildings/icon.svg"
 
 [autoload]
 
-SignalBus="*res://scripts/SignalBus.gd"
-Enums="*res://scenes/conveyor-2/Managers/Enums.gd"
-Constants="*res://scenes/conveyor-2/Managers/Constants.gd"
-BuildingCoordinator="*res://scenes/conveyor-2/Managers/BuildingCoordinator.gd"
-Conveyor="*res://scenes/conveyor-2/Conveyors/Helpers/conveyor_sprite_helper.gd"
+SignalBus="*res://Globals/SignalBus.gd"
+Enums="*res://Globals/Enums.gd"
 
 [display]
 

@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://comctjkpgtlji"]
+
+[ext_resource type="Texture2D" uid="uid://cky16mduaycpb" path="res://Assets/Drone/drone1.png" id="1_361hk"]
+[ext_resource type="Script" uid="uid://dgghc5evh75p1" path="res://scenes/drone/drone.gd" id="1_xanut"]
+[ext_resource type="Texture2D" uid="uid://bvfj44a8e1nkt" path="res://Assets/Drone/drone2.png" id="2_xanut"]
+[ext_resource type="Texture2D" uid="uid://dotu7l3chhcnv" path="res://Assets/Drone/drone3.png" id="3_315ty"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5e86u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_361hk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xanut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_315ty")
+}],
+"loop": true,
+"name": &"1",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfagk"]
+size = Vector2(16, 16)
+
+[node name="Drone" type="Area2D"]
+script = ExtResource("1_xanut")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5e86u")
+animation = &"1"
+frame_progress = 0.8676144
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nfagk")
