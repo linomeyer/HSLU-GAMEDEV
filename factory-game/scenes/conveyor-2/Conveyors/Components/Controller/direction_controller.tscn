@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bu00ntiiddy1k"]
-
-[ext_resource type="Script" uid="uid://d0lxcxk30hg1l" path="res://scenes/conveyor-2/Conveyors/Components/Controller/direction_controller.gd" id="1_wbkor"]
-
-[node name="DirectionController" type="Area2D"]
-script = ExtResource("1_wbkor")

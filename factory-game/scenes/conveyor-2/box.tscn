@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1mcjcug4dwf7"]
-
-[ext_resource type="Texture2D" uid="uid://dld6hhf684063" path="res://Assets/Automation Components/box.png" id="1_82yr7"]
-
-[node name="Box" type="Sprite2D"]
-z_index = 5
-texture = ExtResource("1_82yr7")

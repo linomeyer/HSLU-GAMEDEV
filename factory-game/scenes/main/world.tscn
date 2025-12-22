@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://do1uyhaly1sii" path="res://Assets/Tileset & Environment/Iron_Ore_Tiles.png" id="7_sag5l"]
 [ext_resource type="Texture2D" uid="uid://by8fnitsldtv0" path="res://Assets/Tileset & Environment/Rock_Tiles.png" id="8_2p2jg"]
 [ext_resource type="Texture2D" uid="uid://cr32sus0wagd" path="res://Assets/Tileset & Environment/Copper_Tiles.PNG" id="9_r1or7"]
-[ext_resource type="PackedScene" uid="uid://ddh6l04cad4tk" path="res://scenes/conveyor-2/Building/builder.tscn" id="13_sag5l"]
+[ext_resource type="PackedScene" uid="uid://comctjkpgtlji" path="res://scenes/drone/drone.tscn" id="13_sag5l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbfbk"]
 texture = ExtResource("1_yshnf")
@@ -479,4 +479,5 @@ zoom = Vector2(0.6, 0.6)
 [node name="BuildController" type="Node2D" parent="."]
 script = ExtResource("6_3c7vn")
 
-[node name="Builder" parent="." instance=ExtResource("13_sag5l")]
+[node name="Drone" parent="." instance=ExtResource("13_sag5l")]
+position = Vector2(77, -71)
