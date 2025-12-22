@@ -1,0 +1,8 @@
+res://Scenes/Maps/tile_map.tscn
+res://Scenes/Main/main.tscn
+res://Scenes/Enemies/soldier_a.tscn
+res://Scenes/Enemies/soldier_a.gd
+res://Scenes/Enemies/stage_1_path.tscn
+res://Scenes/Main/path_spawner.gd
+res://Scenes/Enemies/enemy_spawner.gd
+res://Scenes/Main/enemy_spawner.gd
