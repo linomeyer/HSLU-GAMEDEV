@@ -1,17 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://d2721e58mubmi"]
 
 [ext_resource type="Texture2D" uid="uid://dxcy34mgur01r" path="res://Assets/towerDefense_tile245.png" id="1_2ohga"]
-[ext_resource type="Script" uid="uid://biunpundnlrtg" path="res://Scenes/Enemies/soldier_a.gd" id="1_u0nod"]
+[ext_resource type="Script" uid="uid://bp4exjumbo63n" path="res://Scenes/Enemies/soldier_a.gd" id="1_u0nod"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1s36e"]
 
-[node name="PathFollow2D" type="PathFollow2D"]
+[node name="SoldierA" type="CharacterBody2D" groups=["Enemy"]]
 script = ExtResource("1_u0nod")
 
-[node name="SoldierA" type="CharacterBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SoldierA"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1s36e")
 
-[node name="TowerDefenseTile245" type="Sprite2D" parent="SoldierA"]
+[node name="TowerDefenseTile245" type="Sprite2D" parent="."]
 texture = ExtResource("1_2ohga")

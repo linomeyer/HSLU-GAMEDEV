@@ -4,5 +4,9 @@ extends Node2D
 
 
 func _on_spawn_timer_timeout() -> void:
-	$Path2D.add_child(enemy.instantiate())
+	var newFollowPath = PathFollow2D.new()
+	newFollowPath.add_child(enemy.instantiate())
+	$Path2D.add_child(newFollowPath)
+	newFollowPath.set_progress_ratio(0)
+	
 	

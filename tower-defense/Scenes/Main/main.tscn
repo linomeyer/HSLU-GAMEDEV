@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://u4i4roesoays"]
+[gd_scene load_steps=5 format=4 uid="uid://u4i4roesoays"]
 
 [ext_resource type="PackedScene" uid="uid://bttxijisygy02" path="res://Scenes/Maps/tile_map.tscn" id="1_1r6ip"]
 [ext_resource type="Curve2D" uid="uid://dh0tojhnururp" path="res://Scenes/Enemies/stage_1_path.tres" id="2_lixft"]
 [ext_resource type="Script" uid="uid://10qdn81gssqc" path="res://Scenes/Main/enemy_spawner.gd" id="3_5yls4"]
+[ext_resource type="PackedScene" uid="uid://8w3mvqujdlct" path="res://Scenes/Towers/red_bullet_tower.tscn" id="5_p6jpk"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -21,5 +22,10 @@ curve = ExtResource("2_lixft")
 
 [node name="SpawnTimer" type="Timer" parent="EnemySpawner"]
 autostart = true
+
+[node name="Towers" type="Node2D" parent="."]
+
+[node name="RedBulletTower" parent="Towers" instance=ExtResource("5_p6jpk")]
+position = Vector2(896, 512)
 
 [connection signal="timeout" from="EnemySpawner/SpawnTimer" to="EnemySpawner" method="_on_spawn_timer_timeout"]

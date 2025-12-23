@@ -1,8 +1,12 @@
-res://Scenes/Maps/tile_map.tscn
 res://Scenes/Main/main.tscn
 res://Scenes/Enemies/soldier_a.tscn
-res://Scenes/Enemies/soldier_a.gd
-res://Scenes/Enemies/stage_1_path.tscn
-res://Scenes/Main/path_spawner.gd
-res://Scenes/Enemies/enemy_spawner.gd
 res://Scenes/Main/enemy_spawner.gd
+res://Scenes/Towers/red_bullet_tower.tscn
+res://Scenes/Towers/red_bullet_tower.gd
+res://Scenes/Towers/Bullets/red_rocket.tscn
+res://Scenes/Towers/Bullets/red_rocket.gd
+res://Scenes/Towers/Bullets/red_bullet.tscn
+res://Scenes/Towers/Bullets/red_bullet.gd
+res://Scenes/Enemies/soldier_a.gd
+res://Scenes/Towers/bullet_container.gd
+res://Globals/SignalBus.gd

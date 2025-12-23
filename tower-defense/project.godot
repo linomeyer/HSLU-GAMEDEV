@@ -15,11 +15,19 @@ run/main_scene="uid://u4i4roesoays"
 config/features=PackedStringArray("4.5", "Forward Plus")
 run/canvas_textures/default_texture_filter=0
 
+[autoload]
+
+SignalBus="*res://Globals/SignalBus.gd"
+
 [display]
 
 window/size/viewport_width=2304
 window/size/viewport_height=1296
 window/stretch/aspect="expand"
+
+[global_group]
+
+Enemy=""
 
 [rendering]
 
