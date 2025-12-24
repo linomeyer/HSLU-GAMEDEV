@@ -9,3 +9,6 @@ res://Scenes/Towers/red_bullet_tower.gd
 res://Scenes/Enemies/soldier_a.tscn
 res://Scenes/Enemies/soldier_a.gd
 res://Scenes/Towers/red_bullet_tower_upgrades.tscn
+res://Scenes/Towers/range.gd
+res://Scenes/Towers/red_bullet_tower_upgrades.gd
+res://Globals/Enums.gd

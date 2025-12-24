@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://g0lsixs3sdd5"]
+[gd_scene load_steps=7 format=3 uid="uid://g0lsixs3sdd5"]
+
+[ext_resource type="Script" uid="uid://bi3ay2m2h1ngj" path="res://Scenes/Towers/red_bullet_tower_upgrades.gd" id="1_o4qsu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gaoe5"]
 bg_color = Color(0.15487596, 0.154876, 0.15487587, 1)
+draw_center = false
 border_width_left = 32
 border_width_top = 32
 border_width_right = 32
@@ -56,9 +59,9 @@ corner_radius_bottom_left = 16
 font_size = 48
 
 [node name="RedBulletTowerUpgrades" type="Node"]
+script = ExtResource("1_o4qsu")
 
 [node name="UpgradePanel" type="Panel" parent="."]
-visible = false
 offset_left = -500.0
 offset_top = 100.0
 offset_right = 500.0
@@ -86,7 +89,7 @@ offset_left = 51.0
 offset_top = 257.0
 offset_right = 188.0
 offset_bottom = 324.0
-text = "10000"
+text = "Damage"
 label_settings = SubResource("LabelSettings_uyhsf")
 
 [node name="AttackSpeed" type="Button" parent="UpgradePanel/HBoxContainer"]
@@ -98,11 +101,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_hf6dm")
 
 [node name="Label" type="Label" parent="UpgradePanel/HBoxContainer/AttackSpeed"]
 layout_mode = 0
-offset_left = 51.0
 offset_top = 257.0
-offset_right = 188.0
+offset_right = 303.0
 offset_bottom = 324.0
-text = "10000"
+text = "Attack Speed"
 label_settings = SubResource("LabelSettings_uyhsf")
 
 [node name="Range" type="Button" parent="UpgradePanel/HBoxContainer"]
@@ -118,5 +120,9 @@ offset_left = 51.0
 offset_top = 257.0
 offset_right = 188.0
 offset_bottom = 324.0
-text = "10000"
+text = "Range"
 label_settings = SubResource("LabelSettings_uyhsf")
+
+[connection signal="pressed" from="UpgradePanel/HBoxContainer/Damage" to="." method="_on_damage_pressed"]
+[connection signal="pressed" from="UpgradePanel/HBoxContainer/AttackSpeed" to="." method="_on_attack_speed_pressed"]
+[connection signal="pressed" from="UpgradePanel/HBoxContainer/Range" to="." method="_on_range_pressed"]

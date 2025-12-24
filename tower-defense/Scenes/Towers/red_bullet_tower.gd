@@ -4,6 +4,17 @@ var bullet: PackedScene = preload("res://Scenes/Towers/Bullets/red_bullet.tscn")
 var currentTargets = []
 var currentTarget: PathFollow2D
 
+@export var base_range: float = 256
+@export var base_damage: float = 5
+@export var base_attack_speed: float = 0.5
+
+var range: float = base_range
+var damage: float = base_damage
+var attack_speed: float = base_attack_speed
+
+func _ready() -> void:
+	SignalBus.towerUpgraded.connect(_tower_upgraded)
+
 func _process(_delta: float) -> void:
 	if is_instance_valid(currentTarget):
 		look_at(currentTarget.global_position)
@@ -18,8 +29,8 @@ func _on_tower_body_entered(body: Node2D) -> void:
 
 
 func _on_tower_body_exited(body: Node2D) -> void:
-	currentTarget = null
 	if body.is_in_group("Enemy"):
+		currentTarget = null
 		select_target()
 
 
@@ -55,6 +66,9 @@ func _on_shot_timer_timeout() -> void:
 		bulletInstance1.target = currentTarget.get_child(0)
 		bulletInstance2.target = currentTarget.get_child(0)
 		
+		bulletInstance1.bullet_damage = damage
+		bulletInstance2.bullet_damage = damage
+		
 		bulletInstance1.global_position = $Aim.global_position
 		bulletInstance2.global_position = $Aim2.global_position
 		
@@ -69,3 +83,20 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		upgradePanel.visible = !upgradePanel.visible
 		upgradePanel.global_position = self.position + Vector2(-250, 100)
 		
+
+func _tower_upgraded(upgradeType: Enums.UpgradeType, towerName: String, upgradeLevel: int):
+	if upgradeType == Enums.UpgradeType.DAMAGE:
+		damage = base_damage + (2.5 * upgradeLevel) 
+		print("damage")
+		print(damage)
+	elif upgradeType == Enums.UpgradeType.ATTACK_SPEED:
+		attack_speed = base_attack_speed + (0.25 * upgradeLevel)
+		$ShotTimer.wait_time = 1 / attack_speed
+		print("Shot wait time:")
+		print($ShotTimer.wait_time)
+		
+	elif upgradeType == Enums.UpgradeType.RANGE:
+		range = base_range + (64 * upgradeLevel)
+		$Tower/Range.shape.radius = range
+		print("Range:")
+		print(range)

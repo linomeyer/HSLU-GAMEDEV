@@ -18,6 +18,7 @@ run/canvas_textures/default_texture_filter=0
 [autoload]
 
 SignalBus="*res://Globals/SignalBus.gd"
+Enums="*res://Globals/Enums.gd"
 
 [display]
 
