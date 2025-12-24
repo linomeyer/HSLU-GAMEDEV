@@ -8,15 +8,31 @@ func _on_gui_input(event: InputEvent) -> void:
 		add_child(towerInstance)
 		towerInstance.process_mode = Node.PROCESS_MODE_DISABLED
 		towerInstance.global_position = get_global_mouse_position()
-		pass
 	elif event is InputEventMouseMotion and event.button_mask == 1: # dragging
 		# get child 1 because 0 is the sprite
 		get_child(1).global_position = get_global_mouse_position()
-		pass
+		check_placeable()
+			
 	elif event is InputEventMouseButton and event.button_mask == 0: # dropping
-		if get_viewport().gui_get_hovered_control() == null: # only place if not on ui
+		if check_placeable():
 			towerInstance.global_position = get_global_mouse_position()
 			towerInstance.get_node("RangeDisplay").hide()
 			SignalBus.towerPlaced.emit(towerInstance)
 			get_child(1).queue_free()
+		else:
+			get_child(1).queue_free()
+	
+# is placeable if not on UI and on a grass tile
+func check_placeable() -> bool:
+		var tilemap: TileMapLayer = get_tree().get_root().get_node("Main/TileMap")
+		var tileLocation = tilemap.local_to_map(get_global_mouse_position())
+		var currentTile = tilemap.get_cell_atlas_coords(tileLocation)
+		var rangeDisplay: Panel = get_child(1).get_node("RangeDisplay")
+		
+		if currentTile == Vector2i(4, 5) && get_viewport().gui_get_hovered_control() == null:
+			rangeDisplay.modulate  = Color(0,0,0,1)
+			return true
+		else:
+			rangeDisplay.modulate = Color(255,0,0, 1)
+			return false
 	

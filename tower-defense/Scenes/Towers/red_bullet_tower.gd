@@ -48,7 +48,24 @@ func select_target() -> void:
 func _on_shot_timer_timeout() -> void:
 	select_target()
 	if currentTarget != null:
-		var bulletInstance: CharacterBody2D = bullet.instantiate()
-		bulletInstance.target = currentTarget.get_child(0) # get CharacterBody position from PathFollow
-		$BulletContainer.add_child(bulletInstance)
-		bulletInstance.global_position = $Aim.global_position
+		var bulletInstance1: CharacterBody2D = bullet.instantiate()
+		var bulletInstance2: CharacterBody2D = bullet.instantiate()
+		
+		# get CharacterBody position from PathFollow
+		bulletInstance1.target = currentTarget.get_child(0)
+		bulletInstance2.target = currentTarget.get_child(0)
+		
+		bulletInstance1.global_position = $Aim.global_position
+		bulletInstance2.global_position = $Aim2.global_position
+		
+		$BulletContainer.add_child(bulletInstance1)
+		$BulletContainer.add_child(bulletInstance2)
+
+
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.button_mask == 1:
+		SignalBus.hideOtherUpgradePanels.emit(self.name)
+		var upgradePanel = $Upgrade/UpgradePanel
+		upgradePanel.visible = !upgradePanel.visible
+		upgradePanel.global_position = self.position + Vector2(-250, 100)
+		

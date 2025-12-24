@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://8w3mvqujdlct"]
+[gd_scene load_steps=7 format=3 uid="uid://8w3mvqujdlct"]
 
 [ext_resource type="Texture2D" uid="uid://cfrypthfm6nlf" path="res://Assets/towerDefense_tile250.png" id="1_6irxq"]
 [ext_resource type="Script" uid="uid://dfqumucxdcl8s" path="res://Scenes/Towers/red_bullet_tower.gd" id="1_f6ejs"]
+[ext_resource type="PackedScene" uid="uid://g0lsixs3sdd5" path="res://Scenes/Towers/red_bullet_tower_upgrades.tscn" id="3_gaoe5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gaoe5"]
 size = Vector2(57, 42)
@@ -10,13 +11,14 @@ size = Vector2(57, 42)
 radius = 256.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6ejs"]
-bg_color = Color(0.18067154, 0.17861593, 0.1876536, 0.34117648)
+bg_color = Color(0.18039216, 0.18039216, 0.1882353, 0.3529412)
 corner_radius_top_left = 250
 corner_radius_top_right = 250
 corner_radius_bottom_right = 250
 corner_radius_bottom_left = 250
 
 [node name="RedBulletTower" type="StaticBody2D"]
+input_pickable = true
 script = ExtResource("1_f6ejs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -24,7 +26,10 @@ position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_gaoe5")
 
 [node name="Aim" type="Marker2D" parent="."]
-position = Vector2(32, 0)
+position = Vector2(32, 7)
+
+[node name="Aim2" type="Marker2D" parent="."]
+position = Vector2(32, -7)
 
 [node name="TowerSprite" type="Sprite2D" parent="."]
 rotation = 1.5707964
@@ -38,6 +43,7 @@ shape = SubResource("CircleShape2D_8j6wj")
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="ShotTimer" type="Timer" parent="."]
+wait_time = 2.0
 
 [node name="BulletContainer" type="Node" parent="."]
 
@@ -49,6 +55,9 @@ offset_bottom = 256.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_f6ejs")
 
+[node name="Upgrade" parent="." instance=ExtResource("3_gaoe5")]
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]
 [connection signal="body_exited" from="Tower" to="." method="_on_tower_body_exited"]
 [connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]

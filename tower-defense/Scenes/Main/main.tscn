@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://10qdn81gssqc" path="res://Scenes/Main/enemy_spawner.gd" id="3_5yls4"]
 [ext_resource type="PackedScene" uid="uid://8f4un4ntpaw5" path="res://Scenes/UI/placement_ui.tscn" id="4_5yls4"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Main" type="Node2D"]
 script = ExtResource("1_p6jpk")
 
 [node name="TileMap" parent="." instance=ExtResource("1_1r6ip")]
