@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://8f4un4ntpaw5"]
+
+[ext_resource type="PackedScene" uid="uid://bblfny1baqyxx" path="res://Scenes/UI/red_bullet_tower_panel.tscn" id="1_sn5lw"]
+
+[node name="PlacementUI" type="CanvasLayer"]
+
+[node name="TowerPanel" type="Panel" parent="."]
+offset_left = 2624.0
+offset_right = 3072.0
+offset_bottom = 1536.0
+
+[node name="FlowContainer" type="FlowContainer" parent="TowerPanel"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 64.0
+offset_right = 400.0
+offset_bottom = 1472.0
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 32
+
+[node name="RedBulletTowerPanel" parent="TowerPanel/FlowContainer" instance=ExtResource("1_sn5lw")]
+layout_mode = 2
+
+[node name="RedBulletTowerPanel2" parent="TowerPanel/FlowContainer" instance=ExtResource("1_sn5lw")]
+layout_mode = 2

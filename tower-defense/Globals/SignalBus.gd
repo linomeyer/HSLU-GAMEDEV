@@ -1,3 +1,3 @@
 extends Node
 
-signal enemyDied
+signal towerPlaced(tower: StaticBody2D)

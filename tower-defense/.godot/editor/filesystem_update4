@@ -1,12 +1,7 @@
 res://Scenes/Main/main.tscn
-res://Scenes/Enemies/soldier_a.tscn
-res://Scenes/Main/enemy_spawner.gd
+res://Scenes/UI/placement_ui.tscn
+res://Scenes/UI/red_bullet_tower_panel.tscn
+res://Scenes/UI/red_bullet_tower_panel.gd
 res://Scenes/Towers/red_bullet_tower.tscn
-res://Scenes/Towers/red_bullet_tower.gd
-res://Scenes/Towers/Bullets/red_rocket.tscn
-res://Scenes/Towers/Bullets/red_rocket.gd
-res://Scenes/Towers/Bullets/red_bullet.tscn
-res://Scenes/Towers/Bullets/red_bullet.gd
-res://Scenes/Enemies/soldier_a.gd
-res://Scenes/Towers/bullet_container.gd
 res://Globals/SignalBus.gd
+res://Scenes/Main/main.gd

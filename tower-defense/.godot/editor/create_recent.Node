@@ -1,3 +1,7 @@
+Panel
+Sprite2D
+FlowContainer
+CanvasLayer
 Node
 Timer
 Node2D
@@ -8,6 +12,3 @@ Marker2D
 StaticBody2D
 Path2D
 PathFollow2D
-Camera2D
-TileMapLayer
-TileMap
