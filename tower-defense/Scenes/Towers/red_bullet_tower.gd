@@ -14,6 +14,10 @@ var attack_speed: float = base_attack_speed
 
 func _ready() -> void:
 	SignalBus.towerUpgraded.connect(_tower_upgraded)
+	$RangeDisplay2.global_transform = $Tower/Range.global_transform
+	$Upgrade/UpgradePanel/HBoxContainer/Damage.text = str(damage)
+	$Upgrade/UpgradePanel/HBoxContainer/AttackSpeed.text = str(attack_speed)
+	$Upgrade/UpgradePanel/HBoxContainer/Range.text = str(range)
 
 func _process(_delta: float) -> void:
 	if is_instance_valid(currentTarget):
@@ -81,22 +85,21 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		SignalBus.hideOtherUpgradePanels.emit(self.name)
 		var upgradePanel = $Upgrade/UpgradePanel
 		upgradePanel.visible = !upgradePanel.visible
+		$RangeDisplay2.visible = !$RangeDisplay2.visible
 		upgradePanel.global_position = self.position + Vector2(-250, 100)
 		
 
 func _tower_upgraded(upgradeType: Enums.UpgradeType, towerName: String, upgradeLevel: int):
 	if upgradeType == Enums.UpgradeType.DAMAGE:
-		damage = base_damage + (2.5 * upgradeLevel) 
-		print("damage")
-		print(damage)
+		damage = base_damage + (2.5 * upgradeLevel)
+		$Upgrade/UpgradePanel/HBoxContainer/Damage.text = str(damage)
 	elif upgradeType == Enums.UpgradeType.ATTACK_SPEED:
 		attack_speed = base_attack_speed + (0.25 * upgradeLevel)
 		$ShotTimer.wait_time = 1 / attack_speed
-		print("Shot wait time:")
-		print($ShotTimer.wait_time)
+		$Upgrade/UpgradePanel/HBoxContainer/AttackSpeed.text = str(attack_speed)
 		
 	elif upgradeType == Enums.UpgradeType.RANGE:
 		range = base_range + (64 * upgradeLevel)
 		$Tower/Range.shape.radius = range
-		print("Range:")
-		print(range)
+		$RangeDisplay2.queue_redraw()
+		$Upgrade/UpgradePanel/HBoxContainer/Range.text = str(range)

@@ -62,6 +62,7 @@ font_size = 48
 script = ExtResource("1_o4qsu")
 
 [node name="UpgradePanel" type="Panel" parent="."]
+visible = false
 offset_left = -500.0
 offset_top = 100.0
 offset_right = 500.0
@@ -79,6 +80,7 @@ alignment = 1
 [node name="Damage" type="Button" parent="UpgradePanel/HBoxContainer"]
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
+theme_override_font_sizes/font_size = 72
 theme_override_styles/normal = SubResource("StyleBoxFlat_8j6wj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_hd320")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hf6dm")
@@ -95,6 +97,7 @@ label_settings = SubResource("LabelSettings_uyhsf")
 [node name="AttackSpeed" type="Button" parent="UpgradePanel/HBoxContainer"]
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
+theme_override_font_sizes/font_size = 72
 theme_override_styles/normal = SubResource("StyleBoxFlat_8j6wj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_hd320")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hf6dm")
@@ -110,6 +113,7 @@ label_settings = SubResource("LabelSettings_uyhsf")
 [node name="Range" type="Button" parent="UpgradePanel/HBoxContainer"]
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
+theme_override_font_sizes/font_size = 72
 theme_override_styles/normal = SubResource("StyleBoxFlat_8j6wj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_hd320")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hf6dm")

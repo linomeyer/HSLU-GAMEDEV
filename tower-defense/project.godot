@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="tower-defense"
-run/main_scene="uid://u4i4roesoays"
+run/main_scene="uid://cbw1fim245tg4"
 config/features=PackedStringArray("4.5", "Forward Plus")
 run/canvas_textures/default_texture_filter=0
 
@@ -19,6 +19,7 @@ run/canvas_textures/default_texture_filter=0
 
 SignalBus="*res://Globals/SignalBus.gd"
 Enums="*res://Globals/Enums.gd"
+Game="*res://Globals/Game.gd"
 
 [display]
 

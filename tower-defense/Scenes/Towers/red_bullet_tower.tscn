@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://8w3mvqujdlct"]
+[gd_scene load_steps=10 format=3 uid="uid://8w3mvqujdlct"]
 
 [ext_resource type="Texture2D" uid="uid://cfrypthfm6nlf" path="res://Assets/towerDefense_tile250.png" id="1_6irxq"]
 [ext_resource type="Script" uid="uid://dfqumucxdcl8s" path="res://Scenes/Towers/red_bullet_tower.gd" id="1_f6ejs"]
+[ext_resource type="Script" uid="uid://dnxnq5iqk08wg" path="res://Scenes/Towers/range_display_2.gd" id="3_8j6wj"]
 [ext_resource type="PackedScene" uid="uid://g0lsixs3sdd5" path="res://Scenes/Towers/red_bullet_tower_upgrades.tscn" id="3_gaoe5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gaoe5"]
@@ -30,11 +31,14 @@ corner_radius_top_right = 250
 corner_radius_bottom_right = 250
 corner_radius_bottom_left = 250
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8j6wj"]
+size = Vector2(61, 48)
+
 [node name="RedBulletTower" type="StaticBody2D"]
 input_pickable = true
 script = ExtResource("1_f6ejs")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_gaoe5")
 
@@ -54,12 +58,14 @@ texture = ExtResource("1_6irxq")
 shape = SubResource("CircleShape2D_8j6wj")
 script = SubResource("GDScript_gaoe5")
 
-[node name="Node2D" type="Node2D" parent="."]
-
 [node name="ShotTimer" type="Timer" parent="."]
 wait_time = 2.0
 
 [node name="BulletContainer" type="Node" parent="."]
+
+[node name="RangeDisplay2" type="Node2D" parent="."]
+visible = false
+script = ExtResource("3_8j6wj")
 
 [node name="RangeDisplay" type="Panel" parent="."]
 offset_left = -256.0
@@ -70,6 +76,15 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_f6ejs")
 
 [node name="Upgrade" parent="." instance=ExtResource("3_gaoe5")]
+
+[node name="TowerDetector" type="Area2D" parent="."]
+process_mode = 3
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TowerDetector"]
+position = Vector2(-1.5, 0)
+shape = SubResource("RectangleShape2D_8j6wj")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]

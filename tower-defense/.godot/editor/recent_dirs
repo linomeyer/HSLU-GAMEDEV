@@ -1,8 +1,8 @@
 res://Globals
-res://Scenes/Towers
 res://Scenes/UI
-res://Scenes/Towers/Bullets
 res://Scenes/Enemies
+res://Scenes/Towers
+res://Scenes/Towers/Bullets
 res://Scenes/Main
 res://Scenes/Maps
 res://

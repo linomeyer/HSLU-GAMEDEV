@@ -12,3 +12,5 @@ func _hide_upgrade_panels(currentTowerName: String) -> void:
 	for tower in $Towers.get_children():
 		if tower.name != currentTowerName:
 			tower.get_node("Upgrade/UpgradePanel").hide()
+			tower.get_node("RangeDisplay").hide()
+			tower.get_node("RangeDisplay2").hide()

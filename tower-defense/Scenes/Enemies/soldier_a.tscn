@@ -1,9 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2721e58mubmi"]
+[gd_scene load_steps=7 format=3 uid="uid://d2721e58mubmi"]
 
 [ext_resource type="Texture2D" uid="uid://dxcy34mgur01r" path="res://Assets/towerDefense_tile245.png" id="1_2ohga"]
 [ext_resource type="Script" uid="uid://bp4exjumbo63n" path="res://Scenes/Enemies/soldier_a.gd" id="1_u0nod"]
+[ext_resource type="Script" uid="uid://y0jda6ha8avv" path="res://Scenes/Enemies/progress_bar.gd" id="3_b5uhk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1s36e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b5uhk"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxtcp"]
+bg_color = Color(0, 1, 0, 1)
 
 [node name="SoldierA" type="CharacterBody2D" groups=["Enemy"]]
 script = ExtResource("1_u0nod")
@@ -13,3 +20,13 @@ shape = SubResource("CircleShape2D_1s36e")
 
 [node name="TowerDefenseTile245" type="Sprite2D" parent="."]
 texture = ExtResource("1_2ohga")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -22.0
+offset_top = -28.0
+offset_right = 22.0
+offset_bottom = -18.0
+theme_override_styles/background = SubResource("StyleBoxFlat_b5uhk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_lxtcp")
+show_percentage = false
+script = ExtResource("3_b5uhk")
