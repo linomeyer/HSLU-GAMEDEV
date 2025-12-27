@@ -5,6 +5,7 @@ extends Node
 
 
 func decreaseHealthBy(number: int) -> void:
+	print("Game reduce health")
 	health -= number
 	SignalBus.playerLostHealth.emit()
 	

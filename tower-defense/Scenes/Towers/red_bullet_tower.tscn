@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://8w3mvqujdlct"]
+[gd_scene load_steps=9 format=3 uid="uid://8w3mvqujdlct"]
 
 [ext_resource type="Texture2D" uid="uid://cfrypthfm6nlf" path="res://Assets/towerDefense_tile250.png" id="1_6irxq"]
 [ext_resource type="Script" uid="uid://dfqumucxdcl8s" path="res://Scenes/Towers/red_bullet_tower.gd" id="1_f6ejs"]
@@ -9,6 +9,7 @@
 size = Vector2(57, 42)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8j6wj"]
+resource_local_to_scene = true
 radius = 256.0
 
 [sub_resource type="GDScript" id="GDScript_gaoe5"]
@@ -24,17 +25,11 @@ func _draw() -> void:
 	draw_circle(center, radius, color)
 "
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6ejs"]
-bg_color = Color(0.18039216, 0.18039216, 0.1882353, 0.3529412)
-corner_radius_top_left = 250
-corner_radius_top_right = 250
-corner_radius_bottom_right = 250
-corner_radius_bottom_left = 250
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8j6wj"]
 size = Vector2(61, 48)
 
 [node name="RedBulletTower" type="StaticBody2D"]
+scale = Vector2(2, 2)
 input_pickable = true
 script = ExtResource("1_f6ejs")
 
@@ -55,6 +50,7 @@ texture = ExtResource("1_6irxq")
 [node name="Tower" type="Area2D" parent="."]
 
 [node name="Range" type="CollisionShape2D" parent="Tower"]
+scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_8j6wj")
 script = SubResource("GDScript_gaoe5")
 
@@ -66,14 +62,6 @@ wait_time = 2.0
 [node name="RangeDisplay2" type="Node2D" parent="."]
 visible = false
 script = ExtResource("3_8j6wj")
-
-[node name="RangeDisplay" type="Panel" parent="."]
-offset_left = -256.0
-offset_top = -256.0
-offset_right = 256.0
-offset_bottom = 256.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_f6ejs")
 
 [node name="Upgrade" parent="." instance=ExtResource("3_gaoe5")]
 

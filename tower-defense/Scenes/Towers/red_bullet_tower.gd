@@ -90,16 +90,17 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		
 
 func _tower_upgraded(upgradeType: Enums.UpgradeType, towerName: String, upgradeLevel: int):
-	if upgradeType == Enums.UpgradeType.DAMAGE:
-		damage = base_damage + (2.5 * upgradeLevel)
-		$Upgrade/UpgradePanel/HBoxContainer/Damage.text = str(damage)
-	elif upgradeType == Enums.UpgradeType.ATTACK_SPEED:
-		attack_speed = base_attack_speed + (0.25 * upgradeLevel)
-		$ShotTimer.wait_time = 1 / attack_speed
-		$Upgrade/UpgradePanel/HBoxContainer/AttackSpeed.text = str(attack_speed)
-		
-	elif upgradeType == Enums.UpgradeType.RANGE:
-		range = base_range + (64 * upgradeLevel)
-		$Tower/Range.shape.radius = range
-		$RangeDisplay2.queue_redraw()
-		$Upgrade/UpgradePanel/HBoxContainer/Range.text = str(range)
+	if towerName == self.name:
+		if upgradeType == Enums.UpgradeType.DAMAGE:
+			damage = base_damage + (2.5 * upgradeLevel)
+			$Upgrade/UpgradePanel/HBoxContainer/Damage.text = str(damage)
+		elif upgradeType == Enums.UpgradeType.ATTACK_SPEED:
+			attack_speed = base_attack_speed + (0.25 * upgradeLevel)
+			$ShotTimer.wait_time = 1 / attack_speed
+			$Upgrade/UpgradePanel/HBoxContainer/AttackSpeed.text = str(attack_speed)
+			
+		elif upgradeType == Enums.UpgradeType.RANGE:
+			range = base_range + (64 * upgradeLevel)
+			$Tower/Range.shape.radius = range
+			$RangeDisplay2.queue_redraw()
+			$Upgrade/UpgradePanel/HBoxContainer/Range.text = str(range)

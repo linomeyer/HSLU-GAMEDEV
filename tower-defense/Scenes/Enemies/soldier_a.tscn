@@ -19,6 +19,7 @@ script = ExtResource("1_u0nod")
 shape = SubResource("CircleShape2D_1s36e")
 
 [node name="TowerDefenseTile245" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
 texture = ExtResource("1_2ohga")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]

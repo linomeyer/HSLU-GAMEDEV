@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=4 uid="uid://u4i4roesoays"]
+[gd_scene load_steps=8 format=4 uid="uid://u4i4roesoays"]
 
 [ext_resource type="PackedScene" uid="uid://bttxijisygy02" path="res://Scenes/Maps/tile_map.tscn" id="1_1r6ip"]
 [ext_resource type="Script" uid="uid://c6em2u1lo84sv" path="res://Scenes/Main/main.gd" id="1_p6jpk"]
 [ext_resource type="Curve2D" uid="uid://dh0tojhnururp" path="res://Scenes/Enemies/stage_1_path.tres" id="2_lixft"]
 [ext_resource type="Script" uid="uid://10qdn81gssqc" path="res://Scenes/Main/enemy_spawner.gd" id="3_5yls4"]
 [ext_resource type="PackedScene" uid="uid://8f4un4ntpaw5" path="res://Scenes/UI/placement_ui.tscn" id="4_5yls4"]
+[ext_resource type="Texture2D" uid="uid://hryy0mnei6je" path="res://Assets/Tanks/tankBody_bigRed.png" id="6_xlvfx"]
+[ext_resource type="Texture2D" uid="uid://2pv2rv3qwyxd" path="res://Assets/Tanks/tankRed_barrel1_outline.png" id="7_y3v7k"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_p6jpk")
@@ -29,5 +31,16 @@ autostart = true
 
 [node name="PlacementUI" parent="." instance=ExtResource("4_5yls4")]
 follow_viewport_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1664.0001, 1664)
+rotation = 3.1415927
+scale = Vector2(6.8306437, 5.783834)
+texture = ExtResource("6_xlvfx")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(9.536743e-06, 5.632639e-06)
+scale = Vector2(1.0836993, 1.1921742)
+texture = ExtResource("7_y3v7k")
 
 [connection signal="timeout" from="EnemySpawner/SpawnTimer" to="EnemySpawner" method="_on_spawn_timer_timeout"]

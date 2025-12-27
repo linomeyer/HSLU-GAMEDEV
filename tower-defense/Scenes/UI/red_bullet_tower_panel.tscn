@@ -29,4 +29,6 @@ offset_bottom = 164.0
 theme_override_font_sizes/font_size = 50
 text = "10"
 
+[node name="TowerInstance" type="Node" parent="."]
+
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
