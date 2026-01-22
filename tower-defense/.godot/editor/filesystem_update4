@@ -9,3 +9,16 @@ res://Scenes/UI/tower_panel.gd
 res://Scenes/Towers/green_bullet_tower.tscn
 res://Scenes/Towers/green_bullet_tower.gd
 res://Globals/Game.gd
+res://Scenes/Main/main.tscn
+res://Scenes/UI/health.gd
+res://Scenes/UI/main_menu.tscn
+res://Scenes/Main/main.gd
+res://Globals/SignalBus.gd
+res://Scenes/Main/ganme_over.tscn
+res://Scenes/Main/game_over.tscn
+res://Scenes/Main/restart.gd
+res://tank_tower.gd
+res://Scenes/Towers/tank_tower.tscn
+res://Scenes/Towers/tower_upgrades.tscn
+res://Scenes/Towers/tank_tower.gd
+res://Scenes/Towers/tower_upgrades.gd

@@ -5,7 +5,6 @@ extends Node
 
 
 func decreaseHealthBy(number: int) -> void:
-	print("Game reduce health")
 	health -= number
 	SignalBus.playerLostHealth.emit()
 	
@@ -16,3 +15,4 @@ func increaseGoldBy(number: int) -> void:
 func decreaseGoldBy(number: int) -> void:
 	gold -= number
 	SignalBus.goldChanged.emit()
+	

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://g0lsixs3sdd5"]
 
-[ext_resource type="Script" uid="uid://bi3ay2m2h1ngj" path="res://Scenes/Towers/red_bullet_tower_upgrades.gd" id="1_o4qsu"]
+[ext_resource type="Script" uid="uid://bi3ay2m2h1ngj" path="res://Scenes/Towers/tower_upgrades.gd" id="1_o2jmu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gaoe5"]
 bg_color = Color(0.15487596, 0.154876, 0.15487587, 1)
@@ -59,7 +59,7 @@ corner_radius_bottom_left = 16
 font_size = 48
 
 [node name="RedBulletTowerUpgrades" type="Node"]
-script = ExtResource("1_o4qsu")
+script = ExtResource("1_o2jmu")
 
 [node name="UpgradePanel" type="Panel" parent="."]
 visible = false

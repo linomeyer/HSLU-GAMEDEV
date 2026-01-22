@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://ipq2toneri2v"]
+
+[ext_resource type="Script" uid="uid://d2p3upghoj257" path="res://Scenes/Main/restart.gd" id="1_s7nbg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a7l2h"]
+bg_color = Color(0, 0, 0, 0.24313726)
+
+[sub_resource type="LabelSettings" id="LabelSettings_a7l2h"]
+font_size = 300
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h27ny"]
+bg_color = Color(0.15294118, 0.15294118, 0.15294118, 0.7882353)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 3072.0
+offset_bottom = 3072.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_a7l2h")
+
+[node name="GameOver" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 704.0
+offset_top = 576.0
+offset_right = 2333.0
+offset_bottom = 985.0
+text = "Game Over"
+label_settings = SubResource("LabelSettings_a7l2h")
+
+[node name="Restart" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 1216.0
+offset_top = 1024.0
+offset_right = 1856.0
+offset_bottom = 1344.0
+theme_override_font_sizes/font_size = 120
+theme_override_styles/normal = SubResource("StyleBoxFlat_h27ny")
+text = "Restart"
+script = ExtResource("1_s7nbg")
+
+[connection signal="pressed" from="Panel/Restart" to="Panel/Restart" method="_on_pressed"]

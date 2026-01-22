@@ -8,3 +8,5 @@ signal towerUpgraded(upgradeType: Enums.UpgradeType, towerName: String, upgradeL
 
 signal playerLostHealth()
 signal goldChanged()
+
+signal restart()
