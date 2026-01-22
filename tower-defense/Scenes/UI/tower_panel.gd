@@ -39,7 +39,7 @@ func check_placeable() -> bool:
 		var rangeDisplay = $TowerInstance.get_child(0).get_node("RangeDisplay2")
 		rangeDisplay.show()
 		
-		if currentTile == Vector2i(4, 5) && get_viewport().gui_get_hovered_control() == null && $TowerInstance.get_child(0).get_node("TowerDetector").get_overlapping_bodies().size() < 1:
+		if currentTile == Vector2i(4, 5) && get_viewport().gui_get_hovered_control() == null && $TowerInstance.get_child(0).get_node("TowerDetector").get_overlapping_bodies().size() < 1 && Game.gold >= price:
 			if rangeDisplay.color != Color("2e2e305a"):
 				rangeDisplay.color  = Color("2e2e305a")
 				rangeDisplay.queue_redraw()

@@ -1,23 +1,33 @@
 extends StaticBody2D
 
-var bullet: PackedScene = preload("res://Scenes/Towers/Bullets/bullet.tscn")
+var bullet: PackedScene = preload("res://Scenes/Towers/Bullets/tank_bullet.tscn")
 var currentTargets = []
 var currentTarget: PathFollow2D
 
-@export var base_range: float = 256
-@export var base_damage: float = 5
-@export var base_attack_speed: float = 0.5
+@export var base_range: float = 512
+@export var base_damage: float = 20.0
+@export var base_attack_speed: float = 0.35
 
-var range: float = base_range
-var damage: float = base_damage
-var attack_speed: float = base_attack_speed
+var range: float
+var damage: float
+var attack_speed: float # in attacks per second
 
 func _ready() -> void:
+	range = base_range
+	damage = base_damage
+	print(base_damage)
+	print(damage)
+	attack_speed = base_attack_speed
 	SignalBus.towerUpgraded.connect(_tower_upgraded)
 	$RangeDisplay2.global_transform = $Tower/Range.global_transform
 	$Upgrade/UpgradePanel/HBoxContainer/Damage.text = str(damage)
 	$Upgrade/UpgradePanel/HBoxContainer/AttackSpeed.text = str(attack_speed)
 	$Upgrade/UpgradePanel/HBoxContainer/Range.text = str(range)
+	
+	# set initial range and attack speed
+	$Tower/Range.shape.radius = range
+	$RangeDisplay2.queue_redraw()
+	$ShotTimer.wait_time = 1 / attack_speed
 
 func _process(_delta: float) -> void:
 	if is_instance_valid(currentTarget):
@@ -46,7 +56,6 @@ func select_target() -> void:
 		$ShotTimer.stop()
 		pass
 	
-
 	for node in nodesInRange:
 		if node.is_in_group("Enemy"):
 			targets.append(node)
@@ -68,6 +77,7 @@ func _on_shot_timer_timeout() -> void:
 		# get CharacterBody position from PathFollow
 		bulletInstance1.target = currentTarget.get_child(0)
 		bulletInstance1.bullet_damage = damage
+		bulletInstance1.speed = 1000
 		bulletInstance1.global_position = $Aim.global_position
 		
 		$BulletContainer.add_child(bulletInstance1)

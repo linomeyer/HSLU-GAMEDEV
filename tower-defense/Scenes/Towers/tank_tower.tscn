@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dcvswlw5otupe"]
+[gd_scene load_steps=10 format=3 uid="uid://dcvswlw5otupe"]
 
 [ext_resource type="Script" uid="uid://s4ug87xb1dt8" path="res://Scenes/Towers/tank_tower.gd" id="1_rp88v"]
-[ext_resource type="Texture2D" uid="uid://loa65c5ytijf" path="res://Assets/towerDefense_tile249.png" id="2_06ryt"]
+[ext_resource type="Texture2D" uid="uid://hryy0mnei6je" path="res://Assets/Tanks/tankBody_bigRed.png" id="2_06ryt"]
+[ext_resource type="Texture2D" uid="uid://drirv6d56j70l" path="res://Assets/Tanks/specialBarrel5_outline.png" id="2_rp88v"]
 [ext_resource type="Script" uid="uid://dnxnq5iqk08wg" path="res://Scenes/Towers/range_display_2.gd" id="3_3v82e"]
 [ext_resource type="PackedScene" uid="uid://g0lsixs3sdd5" path="res://Scenes/Towers/tower_upgrades.tscn" id="4_a8tls"]
 
@@ -38,11 +39,17 @@ position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_gaoe5")
 
 [node name="Aim" type="Marker2D" parent="."]
-position = Vector2(32, 0)
+position = Vector2(52, 0)
+
+[node name="Tank" type="Sprite2D" parent="."]
+rotation = 1.5707964
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("2_06ryt")
 
 [node name="TowerSprite" type="Sprite2D" parent="."]
 rotation = 1.5707964
-texture = ExtResource("2_06ryt")
+scale = Vector2(4, 4)
+texture = ExtResource("2_rp88v")
 
 [node name="Tower" type="Area2D" parent="."]
 

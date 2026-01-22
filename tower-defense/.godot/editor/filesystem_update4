@@ -22,3 +22,8 @@ res://Scenes/Towers/tank_tower.tscn
 res://Scenes/Towers/tower_upgrades.tscn
 res://Scenes/Towers/tank_tower.gd
 res://Scenes/Towers/tower_upgrades.gd
+res://Scenes/Towers/Bullets/tank_bullet.tscn
+res://Scenes/Enemies/stage_1_path.tres
+res://Scenes/Towers/Bullets/bullet.gd
+res://Scenes/Enemies/soldier_a.tscn
+res://Scenes/Enemies/soldier_a.gd

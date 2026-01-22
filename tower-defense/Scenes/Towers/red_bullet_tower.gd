@@ -5,14 +5,17 @@ var currentTargets = []
 var currentTarget: PathFollow2D
 
 @export var base_range: float = 256
-@export var base_damage: float = 5
-@export var base_attack_speed: float = 0.5
+@export var base_damage: float = 20
+@export var base_attack_speed: float = 0.3
 
-var range: float = base_range
-var damage: float = base_damage
-var attack_speed: float = base_attack_speed
+var range: float
+var damage: float
+var attack_speed: float # in attacks per second
 
 func _ready() -> void:
+	range = base_range
+	damage = base_damage
+	attack_speed = base_attack_speed
 	SignalBus.towerUpgraded.connect(_tower_upgraded)
 	$RangeDisplay2.global_transform = $Tower/Range.global_transform
 	$Upgrade/UpgradePanel/HBoxContainer/Damage.text = str(damage)
