@@ -61,6 +61,9 @@ visible = false
 script = ExtResource("3_jswb0")
 
 [node name="Upgrade" parent="." instance=ExtResource("4_x30go")]
+damageLevelUpgradeCost = 15
+attackSpeedLevelUpgradeCost = 15
+rangeLevelUpgradeCost = 15
 
 [node name="TowerDetector" type="Area2D" parent="."]
 process_mode = 3

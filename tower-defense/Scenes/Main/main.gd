@@ -1,6 +1,8 @@
 extends Node2D
 
 func _ready() -> void:
+	Game.reset()
+	
 	SignalBus.towerPlaced.connect(_on_tower_placed)
 	SignalBus.hideOtherUpgradePanels.connect(_hide_upgrade_panels)
 	SignalBus.playerLostHealth.connect(_on_player_lost_health)

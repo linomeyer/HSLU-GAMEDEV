@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://g0lsixs3sdd5"]
+[gd_scene load_steps=10 format=3 uid="uid://g0lsixs3sdd5"]
 
 [ext_resource type="Script" uid="uid://bi3ay2m2h1ngj" path="res://Scenes/Towers/tower_upgrades.gd" id="1_o2jmu"]
+[ext_resource type="Texture2D" uid="uid://cvr60jqcrvlvb" path="res://Assets/Star.png" id="2_v05t1"]
+[ext_resource type="Texture2D" uid="uid://ch21coya557l5" path="res://Assets/Star-bw.PNG" id="2_xdoq1"]
+[ext_resource type="Texture2D" uid="uid://5r0ph7lvdtl4" path="res://Assets/towerDefense_tile272.png" id="4_io37r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gaoe5"]
-bg_color = Color(0.15487596, 0.154876, 0.15487587, 1)
-draw_center = false
+bg_color = Color(0.12156863, 0.12156863, 0.12156863, 0.74509805)
 border_width_left = 32
 border_width_top = 32
 border_width_right = 32
@@ -56,24 +58,25 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
 [sub_resource type="LabelSettings" id="LabelSettings_uyhsf"]
-font_size = 48
+font_size = 28
 
-[node name="RedBulletTowerUpgrades" type="Node"]
+[node name="TowerUpgrades" type="Node"]
 script = ExtResource("1_o2jmu")
 
 [node name="UpgradePanel" type="Panel" parent="."]
 visible = false
 offset_left = -500.0
-offset_top = 100.0
+offset_top = 105.0
 offset_right = 500.0
-offset_bottom = 500.0
+offset_bottom = 502.0
+scale = Vector2(1.5, 1.5)
 theme_override_styles/panel = SubResource("StyleBoxFlat_gaoe5")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UpgradePanel"]
 layout_mode = 0
-offset_top = 48.0
+offset_top = 55.0
 offset_right = 1000.0
-offset_bottom = 298.0
+offset_bottom = 305.0
 theme_override_constants/separation = 64
 alignment = 1
 
@@ -87,11 +90,44 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_hf6dm")
 
 [node name="Label" type="Label" parent="UpgradePanel/HBoxContainer/Damage"]
 layout_mode = 0
-offset_left = 51.0
+offset_left = 12.0
 offset_top = 257.0
-offset_right = 188.0
+offset_right = 155.0
 offset_bottom = 324.0
-text = "Damage"
+text = "Damage:"
+label_settings = SubResource("LabelSettings_uyhsf")
+
+[node name="ProgressBar" type="TextureProgressBar" parent="UpgradePanel/HBoxContainer/Damage"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 158.0
+offset_right = 219.0
+offset_bottom = 222.0
+max_value = 3.0
+texture_under = ExtResource("2_xdoq1")
+texture_progress = ExtResource("2_v05t1")
+
+[node name="DamageLabel" type="Label" parent="UpgradePanel/HBoxContainer/Damage"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 257.0
+offset_right = 222.0
+offset_bottom = 324.0
+text = "x"
+label_settings = SubResource("LabelSettings_uyhsf")
+
+[node name="Sprite2D" type="Sprite2D" parent="UpgradePanel/HBoxContainer/Damage"]
+position = Vector2(65, 100)
+scale = Vector2(3, 3)
+texture = ExtResource("4_io37r")
+
+[node name="Cost" type="Label" parent="UpgradePanel/HBoxContainer/Damage"]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 77.0
+offset_right = 186.0
+offset_bottom = 144.0
+text = "x"
 label_settings = SubResource("LabelSettings_uyhsf")
 
 [node name="AttackSpeed" type="Button" parent="UpgradePanel/HBoxContainer"]
@@ -104,10 +140,44 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_hf6dm")
 
 [node name="Label" type="Label" parent="UpgradePanel/HBoxContainer/AttackSpeed"]
 layout_mode = 0
+offset_left = 11.0
 offset_top = 257.0
-offset_right = 303.0
+offset_right = 260.0
 offset_bottom = 324.0
-text = "Attack Speed"
+text = "Attack Speed:"
+label_settings = SubResource("LabelSettings_uyhsf")
+
+[node name="ProgressBar" type="TextureProgressBar" parent="UpgradePanel/HBoxContainer/AttackSpeed"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 158.0
+offset_right = 219.0
+offset_bottom = 222.0
+max_value = 3.0
+texture_under = ExtResource("2_xdoq1")
+texture_progress = ExtResource("2_v05t1")
+
+[node name="AttackSpeedLabel" type="Label" parent="UpgradePanel/HBoxContainer/AttackSpeed"]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 256.0
+offset_right = 287.0
+offset_bottom = 323.0
+text = "x"
+label_settings = SubResource("LabelSettings_uyhsf")
+
+[node name="Sprite2D" type="Sprite2D" parent="UpgradePanel/HBoxContainer/AttackSpeed"]
+position = Vector2(65, 100)
+scale = Vector2(3, 3)
+texture = ExtResource("4_io37r")
+
+[node name="Cost" type="Label" parent="UpgradePanel/HBoxContainer/AttackSpeed"]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 77.0
+offset_right = 186.0
+offset_bottom = 144.0
+text = "x"
 label_settings = SubResource("LabelSettings_uyhsf")
 
 [node name="Range" type="Button" parent="UpgradePanel/HBoxContainer"]
@@ -120,11 +190,44 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_hf6dm")
 
 [node name="Label" type="Label" parent="UpgradePanel/HBoxContainer/Range"]
 layout_mode = 0
-offset_left = 51.0
+offset_left = 7.0
 offset_top = 257.0
-offset_right = 188.0
+offset_right = 144.0
 offset_bottom = 324.0
-text = "Range"
+text = "Range:"
+label_settings = SubResource("LabelSettings_uyhsf")
+
+[node name="ProgressBar" type="TextureProgressBar" parent="UpgradePanel/HBoxContainer/Range"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 158.0
+offset_right = 219.0
+offset_bottom = 222.0
+max_value = 3.0
+texture_under = ExtResource("2_xdoq1")
+texture_progress = ExtResource("2_v05t1")
+
+[node name="RangeLabel" type="Label" parent="UpgradePanel/HBoxContainer/Range"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 257.0
+offset_right = 189.0
+offset_bottom = 324.0
+text = "x"
+label_settings = SubResource("LabelSettings_uyhsf")
+
+[node name="Sprite2D" type="Sprite2D" parent="UpgradePanel/HBoxContainer/Range"]
+position = Vector2(65, 100)
+scale = Vector2(3, 3)
+texture = ExtResource("4_io37r")
+
+[node name="Cost" type="Label" parent="UpgradePanel/HBoxContainer/Range"]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 77.0
+offset_right = 186.0
+offset_bottom = 144.0
+text = "x"
 label_settings = SubResource("LabelSettings_uyhsf")
 
 [connection signal="pressed" from="UpgradePanel/HBoxContainer/Damage" to="." method="_on_damage_pressed"]

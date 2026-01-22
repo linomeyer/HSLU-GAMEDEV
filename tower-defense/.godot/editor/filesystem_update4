@@ -27,3 +27,7 @@ res://Scenes/Enemies/stage_1_path.tres
 res://Scenes/Towers/Bullets/bullet.gd
 res://Scenes/Enemies/soldier_a.tscn
 res://Scenes/Enemies/soldier_a.gd
+res://Scenes/Towers/red_bullet_tower.tscn
+res://Scenes/Enemies/soldier_sprinter.gd
+res://Scenes/Enemies/soldier_tank.gd
+res://Scenes/Enemies/soldier_elite.gd

@@ -6,7 +6,7 @@ var currentTarget: PathFollow2D
 
 @export var base_range: float = 512
 @export var base_damage: float = 20.0
-@export var base_attack_speed: float = 0.35
+@export var base_attack_speed: float = 0.4
 
 var range: float
 var damage: float
@@ -15,14 +15,11 @@ var attack_speed: float # in attacks per second
 func _ready() -> void:
 	range = base_range
 	damage = base_damage
-	print(base_damage)
-	print(damage)
 	attack_speed = base_attack_speed
 	SignalBus.towerUpgraded.connect(_tower_upgraded)
 	$RangeDisplay2.global_transform = $Tower/Range.global_transform
-	$Upgrade/UpgradePanel/HBoxContainer/Damage.text = str(damage)
-	$Upgrade/UpgradePanel/HBoxContainer/AttackSpeed.text = str(attack_speed)
-	$Upgrade/UpgradePanel/HBoxContainer/Range.text = str(range)
+	
+	set_upgrade_ui_labels()
 	
 	# set initial range and attack speed
 	$Tower/Range.shape.radius = range
@@ -95,15 +92,20 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 func _tower_upgraded(upgradeType: Enums.UpgradeType, towerName: String, upgradeLevel: int):
 	if towerName == self.name:
 		if upgradeType == Enums.UpgradeType.DAMAGE:
-			damage = base_damage + (2.5 * upgradeLevel)
-			$Upgrade/UpgradePanel/HBoxContainer/Damage.text = str(damage)
+				damage = base_damage + (10 * upgradeLevel)
+				
 		elif upgradeType == Enums.UpgradeType.ATTACK_SPEED:
 			attack_speed = base_attack_speed + (0.25 * upgradeLevel)
 			$ShotTimer.wait_time = 1 / attack_speed
-			$Upgrade/UpgradePanel/HBoxContainer/AttackSpeed.text = str(attack_speed)
-			
 		elif upgradeType == Enums.UpgradeType.RANGE:
-			range = base_range + (64 * upgradeLevel)
+			range = base_range + (192 * upgradeLevel)
 			$Tower/Range.shape.radius = range
 			$RangeDisplay2.queue_redraw()
-			$Upgrade/UpgradePanel/HBoxContainer/Range.text = str(range)
+		
+		set_upgrade_ui_labels()
+
+func set_upgrade_ui_labels() -> void:
+	$Upgrade/UpgradePanel/HBoxContainer/Damage/DamageLabel.text = str(damage)
+	$Upgrade/UpgradePanel/HBoxContainer/AttackSpeed/AttackSpeedLabel.text = str(attack_speed)
+	$Upgrade/UpgradePanel/HBoxContainer/Range/RangeLabel.text = str(range)
+	
