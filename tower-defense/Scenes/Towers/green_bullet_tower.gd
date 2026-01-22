@@ -64,20 +64,15 @@ func _on_shot_timer_timeout() -> void:
 	select_target()
 	if currentTarget != null:
 		var bulletInstance1: CharacterBody2D = bullet.instantiate()
-		var bulletInstance2: CharacterBody2D = bullet.instantiate()
 		
 		# get CharacterBody position from PathFollow
 		bulletInstance1.target = currentTarget.get_child(0)
-		bulletInstance2.target = currentTarget.get_child(0)
 		
 		bulletInstance1.bullet_damage = damage
-		bulletInstance2.bullet_damage = damage
 		
 		bulletInstance1.global_position = $Aim.global_position
-		bulletInstance2.global_position = $Aim2.global_position
 		
 		$BulletContainer.add_child(bulletInstance1)
-		$BulletContainer.add_child(bulletInstance2)
 
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:

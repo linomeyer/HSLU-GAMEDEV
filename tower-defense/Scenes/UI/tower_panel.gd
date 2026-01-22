@@ -1,6 +1,13 @@
 extends Panel
 
-@onready var tower: PackedScene = preload("res://Scenes/Towers/red_bullet_tower.tscn")
+@export var tower: PackedScene = preload("res://Scenes/Towers/red_bullet_tower.tscn")
+@export var price = 0
+@export var sprite: Texture = preload("res://Assets/towerDefense_tile250.png")
+
+
+func _ready() -> void:
+	$PriceLabel.text = str(price)
+	$TowerSprite.texture = sprite
 
 func _on_gui_input(event: InputEvent) -> void:
 	var towerInstance: StaticBody2D = tower.instantiate()
@@ -17,6 +24,7 @@ func _on_gui_input(event: InputEvent) -> void:
 		if check_placeable():
 			towerInstance.global_position = get_global_mouse_position()
 			SignalBus.towerPlaced.emit(towerInstance)
+			Game.decreaseGoldBy(price)
 			$TowerInstance.get_child(0).get_node("RangeDisplay2").hide()
 			$TowerInstance.get_child(0).queue_free()
 		else:

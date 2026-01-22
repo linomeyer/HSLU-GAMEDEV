@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8htcwcmbqwl0"]
+
+[ext_resource type="Script" uid="uid://vhy87pc8kbjx" path="res://Scenes/Towers/green_bullet_tower.gd" id="1_61jyh"]
+[ext_resource type="Texture2D" uid="uid://loa65c5ytijf" path="res://Assets/towerDefense_tile249.png" id="2_ybor4"]
+[ext_resource type="Script" uid="uid://dnxnq5iqk08wg" path="res://Scenes/Towers/range_display_2.gd" id="3_jswb0"]
+[ext_resource type="PackedScene" uid="uid://g0lsixs3sdd5" path="res://Scenes/Towers/red_bullet_tower_upgrades.tscn" id="4_x30go"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gaoe5"]
+size = Vector2(57, 42)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ig662"]
+resource_local_to_scene = true
+radius = 256.0
+
+[sub_resource type="GDScript" id="GDScript_gaoe5"]
+script/source = "extends CollisionShape2D
+
+func _ready() -> void:
+	hide()
+
+func _draw() -> void:
+	var center = Vector2(0,0)
+	var radius = self.shape.radius
+	var color = Color(1,0,0)
+	draw_circle(center, radius, color)
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8j6wj"]
+size = Vector2(61, 48)
+
+[node name="GreenTower" type="StaticBody2D"]
+scale = Vector2(2, 2)
+input_pickable = true
+script = ExtResource("1_61jyh")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_gaoe5")
+
+[node name="Aim" type="Marker2D" parent="."]
+position = Vector2(32, 0)
+
+[node name="TowerSprite" type="Sprite2D" parent="."]
+rotation = 1.5707964
+texture = ExtResource("2_ybor4")
+
+[node name="Tower" type="Area2D" parent="."]
+
+[node name="Range" type="CollisionShape2D" parent="Tower"]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_ig662")
+script = SubResource("GDScript_gaoe5")
+
+[node name="ShotTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="BulletContainer" type="Node" parent="."]
+
+[node name="RangeDisplay2" type="Node2D" parent="."]
+visible = false
+script = ExtResource("3_jswb0")
+
+[node name="Upgrade" parent="." instance=ExtResource("4_x30go")]
+
+[node name="TowerDetector" type="Area2D" parent="."]
+process_mode = 3
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TowerDetector"]
+position = Vector2(-1.5, 0)
+shape = SubResource("RectangleShape2D_8j6wj")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]
+[connection signal="body_exited" from="Tower" to="." method="_on_tower_body_exited"]
+[connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]

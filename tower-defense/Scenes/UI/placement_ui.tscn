@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://8f4un4ntpaw5"]
+[gd_scene load_steps=6 format=3 uid="uid://8f4un4ntpaw5"]
 
-[ext_resource type="PackedScene" uid="uid://bblfny1baqyxx" path="res://Scenes/UI/red_bullet_tower_panel.tscn" id="1_sn5lw"]
+[ext_resource type="PackedScene" uid="uid://bblfny1baqyxx" path="res://Scenes/UI/tower_panel.tscn" id="1_sn5lw"]
+[ext_resource type="PackedScene" uid="uid://b8htcwcmbqwl0" path="res://Scenes/Towers/green_bullet_tower.tscn" id="2_i847j"]
 [ext_resource type="Script" uid="uid://d3q0nhpbqi30t" path="res://Scenes/UI/health.gd" id="2_wfsy1"]
+[ext_resource type="Texture2D" uid="uid://loa65c5ytijf" path="res://Assets/towerDefense_tile249.png" id="3_eua4n"]
 [ext_resource type="Script" uid="uid://bno5t1ouwy4l6" path="res://Scenes/UI/gold.gd" id="3_jjdmm"]
 
 [node name="PlacementUI" type="CanvasLayer"]
@@ -20,11 +22,15 @@ offset_bottom = 1472.0
 theme_override_constants/h_separation = 32
 theme_override_constants/v_separation = 32
 
-[node name="RedBulletTowerPanel" parent="TowerPanel/FlowContainer" instance=ExtResource("1_sn5lw")]
+[node name="GreenBulletTowerPanel" parent="TowerPanel/FlowContainer" instance=ExtResource("1_sn5lw")]
 layout_mode = 2
+tower = ExtResource("2_i847j")
+price = 25
+sprite = ExtResource("3_eua4n")
 
 [node name="RedBulletTowerPanel2" parent="TowerPanel/FlowContainer" instance=ExtResource("1_sn5lw")]
 layout_mode = 2
+price = 40
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_left = 50.0

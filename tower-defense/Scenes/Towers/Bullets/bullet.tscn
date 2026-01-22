@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://0ro7y66f2ogm"]
 
-[ext_resource type="Script" uid="uid://ce65a6vff1huc" path="res://Scenes/Towers/Bullets/red_bullet.gd" id="1_f31jx"]
+[ext_resource type="Script" uid="uid://ce65a6vff1huc" path="res://Scenes/Towers/Bullets/bullet.gd" id="1_f31jx"]
 [ext_resource type="Texture2D" uid="uid://dhy4vipxuvgw1" path="res://Assets/towerDefense_tile251.png" id="2_lvjm1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xywp7"]

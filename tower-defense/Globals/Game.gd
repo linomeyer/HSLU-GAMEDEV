@@ -12,3 +12,7 @@ func decreaseHealthBy(number: int) -> void:
 func increaseGoldBy(number: int) -> void:
 	gold += number
 	SignalBus.goldChanged.emit()
+	
+func decreaseGoldBy(number: int) -> void:
+	gold -= number
+	SignalBus.goldChanged.emit()
