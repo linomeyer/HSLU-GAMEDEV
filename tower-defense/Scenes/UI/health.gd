@@ -6,5 +6,4 @@ func _ready() -> void:
 	self.text = "Health: " + str(Game.health)
 
 func _setText() -> void:
-	print(Game.health)
 	self.text = "Health: " + str(Game.health)

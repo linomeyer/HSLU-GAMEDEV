@@ -8,6 +8,7 @@ func _ready() -> void:
 	SignalBus.hideOtherUpgradePanels.connect(_hide_upgrade_panels)
 	SignalBus.playerLostHealth.connect(_on_player_lost_health)
 	SignalBus.restart.connect(_on_restart)
+	SignalBus.gameWon.connect(_on_game_won)
 	
 	# Start background music
 	SoundManager.play_music(SoundManager.background_music_1)
@@ -31,3 +32,7 @@ func _on_player_lost_health() -> void:
 func _on_restart() -> void:
 	get_tree().change_scene_to_file("res://Scenes/UI/main_menu.tscn")
 		
+func _on_game_won() -> void:
+	if not $GameWin.visible:
+		$GameWin.visible = true
+	

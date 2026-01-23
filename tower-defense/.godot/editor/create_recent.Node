@@ -1,14 +1,14 @@
+Label
+CanvasLayer
 Button
 Path2D
 HBoxContainer
 Sprite2D
-Label
 SubViewport
 TextureRect
 TextureProgressBar
 ProgressBar
 Node
 Panel
-CanvasLayer
 PathFollow2D
 VBoxContainer

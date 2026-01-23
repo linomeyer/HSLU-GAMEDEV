@@ -24,6 +24,7 @@ func reset() -> void:
 	gold = 100
 	health = 10
 	game_time = 0
+	wave = 0
 	
 	SignalBus.goldChanged.emit()
 	SignalBus.playerLostHealth.emit()

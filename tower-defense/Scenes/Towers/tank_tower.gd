@@ -6,10 +6,10 @@ var currentTarget: PathFollow2D
 
 @export var base_range: float = 512
 @export var base_damage: float = 20.0
-@export var base_attack_speed: float = 0.4
+@export var base_attack_speed: float = 0.5
 
-@export var damage_level_increase: float = 5
-@export var attack_speed_level_increase: float = 0.2
+@export var damage_level_increase: float = 8
+@export var attack_speed_level_increase: float = 0.25
 @export var range_level_increase: float = 128
 
 var range: float
@@ -85,7 +85,8 @@ func _on_shot_timer_timeout() -> void:
 		
 		# Play shoot sound
 		SoundManager.play_shoot_sound($Aim.global_position)
-
+	elif not $ShotTimer.paused:
+		$ShotTimer.stop()
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_mask == 1:

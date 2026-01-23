@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://8f4un4ntpaw5"]
+[gd_scene load_steps=18 format=3 uid="uid://8f4un4ntpaw5"]
 
+[ext_resource type="StyleBox" uid="uid://lb1ca3ytn70u" path="res://Resources/Templates/button.tres" id="1_4kt4x"]
 [ext_resource type="PackedScene" uid="uid://bblfny1baqyxx" path="res://Scenes/UI/tower_panel.tscn" id="1_sn5lw"]
 [ext_resource type="PackedScene" uid="uid://b8htcwcmbqwl0" path="res://Scenes/Towers/green_bullet_tower.tscn" id="2_i847j"]
 [ext_resource type="Script" uid="uid://d3q0nhpbqi30t" path="res://Scenes/UI/health.gd" id="2_wfsy1"]
@@ -8,15 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://cfijx2v8y81od" path="res://Assets/fastForward.png" id="6_jmqu6"]
 [ext_resource type="Script" uid="uid://dxkh0ee3at60v" path="res://Scenes/UI/start_wave.gd" id="6_orh1d"]
 [ext_resource type="PackedScene" uid="uid://rum187a6no2v" path="res://Scenes/UI/options_menu.tscn" id="7_options"]
-[ext_resource type="Script" path="res://Scenes/UI/settings_button.gd" id="8_settings"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmqu6"]
-bg_color = Color(0.1764706, 0.1764706, 0.1764706, 0.8352941)
-corner_radius_top_left = 64
-corner_radius_top_right = 64
-corner_radius_bottom_right = 64
-corner_radius_bottom_left = 64
-expand_margin_left = 16.0
+[ext_resource type="Script" uid="uid://b67a7vsrc3guc" path="res://Scenes/UI/settings_button.gd" id="8_settings"]
+[ext_resource type="Script" uid="uid://d07fuy61havke" path="res://Scenes/UI/wave_label.gd" id="10_b2u60"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6u8b"]
 bg_color = Color(0.105882354, 0.105882354, 0.105882354, 0.8117647)
@@ -56,6 +50,9 @@ unicode = 32
 [sub_resource type="Shortcut" id="Shortcut_e5flm"]
 events = [SubResource("InputEventKey_j6u8b")]
 
+[sub_resource type="LabelSettings" id="LabelSettings_e5flm"]
+font_size = 96
+
 [node name="PlacementUI" type="CanvasLayer"]
 
 [node name="SettingsButton" type="Button" parent="."]
@@ -63,11 +60,11 @@ offset_left = 2520.0
 offset_top = 64.0
 offset_right = 2620.0
 offset_bottom = 164.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_jmqu6")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("1_4kt4x")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_j6u8b")
 theme_override_styles/hover = SubResource("StyleBoxFlat_e5flm")
 theme_override_styles/focus = SubResource("StyleBoxFlat_b2u60")
-theme_override_font_sizes/font_size = 32
 text = "⚙"
 script = ExtResource("8_settings")
 
@@ -103,13 +100,13 @@ offset_bottom = 322.0
 
 [node name="Health" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 98
+theme_override_font_sizes/font_size = 96
 text = "Health: "
 script = ExtResource("2_wfsy1")
 
 [node name="Gold" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 98
+theme_override_font_sizes/font_size = 96
 text = "Gold:"
 script = ExtResource("3_jjdmm")
 
@@ -118,9 +115,10 @@ offset_left = 2752.0
 offset_top = 2752.0
 offset_right = 3010.0
 offset_bottom = 3010.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_jmqu6")
+theme_override_styles/normal = ExtResource("1_4kt4x")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_j6u8b")
 theme_override_styles/hover = SubResource("StyleBoxFlat_e5flm")
+theme_override_styles/disabled = ExtResource("1_4kt4x")
 theme_override_styles/focus = SubResource("StyleBoxFlat_b2u60")
 shortcut = SubResource("Shortcut_e5flm")
 icon = ExtResource("6_jmqu6")
@@ -128,5 +126,14 @@ script = ExtResource("6_orh1d")
 
 [node name="OptionsMenu" parent="." instance=ExtResource("7_options")]
 
-[connection signal="pressed" from="StartWave" to="StartWave" method="_on_pressed"]
+[node name="Wave" type="Label" parent="."]
+offset_left = 1152.0
+offset_top = 64.0
+offset_right = 1457.0
+offset_bottom = 196.0
+text = "Wave: "
+label_settings = SubResource("LabelSettings_e5flm")
+script = ExtResource("10_b2u60")
+
 [connection signal="pressed" from="SettingsButton" to="SettingsButton" method="_on_pressed"]
+[connection signal="pressed" from="StartWave" to="StartWave" method="_on_pressed"]

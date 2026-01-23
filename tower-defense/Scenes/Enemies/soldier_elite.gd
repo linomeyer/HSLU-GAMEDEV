@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var speed = 150
-@export var health = 50
+@export var speed = 200
+@export var health = 100
 @export var gold_value = 10
 @onready var followPath: PathFollow2D = get_parent()
 

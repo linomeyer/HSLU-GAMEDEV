@@ -8,10 +8,18 @@ func _ready() -> void:
 
 
 func _on_wave_start(wave_number: int):
-	if wave_number < enemy_data.size():
+	if wave_number < enemy_data.size() - 1:
 		spawn_wave(enemy_data[wave_number])
-	else:
-		Game.win()
+	# check game won after last wave has finished spawning
+	elif(wave_number == enemy_data.size() - 1):
+		var finish_check_timer = Timer.new()
+		finish_check_timer.wait_time = 30
+		finish_check_timer.timeout.connect(_on_finish_check_timer_timeout.bind(finish_check_timer))
+		finish_check_timer.name = "test"
+		print("i got here")
+		add_child(finish_check_timer)
+		finish_check_timer.start()
+		spawn_wave(enemy_data[wave_number])
 
 func spawn_wave(wave: Wave) -> void:
 	for enemy_sequence in wave.enemy_sequences:
@@ -27,7 +35,6 @@ func spawn_wave(wave: Wave) -> void:
 		
 func _on_enemy_timer_timeout(dict: Dictionary):
 	var enemy_sequence: EnemySequence = dict.get("enemy_sequence")
-	print(enemy_sequence.amount)
 	var enemy: PackedScene = get_enemy(enemy_sequence.name)
 	var path: Path2D = get_enemy_path(enemy_sequence.path)
 	
@@ -68,3 +75,12 @@ func get_enemy(enemy_name: Enums.EnemyType) -> PackedScene:
 			
 	return load("res://Scenes/Enemies/soldier_a.tscn")
 	
+	
+func _on_finish_check_timer_timeout(timer: Timer) -> void:
+	print("finish check timer timeout")
+	timer.wait_time = 1
+	timer.start()
+	var enemiesLeft = $TopRightPath.get_child_count() + $TopLeftPath.get_child_count() + $BottomPath.get_child_count()
+	print(enemiesLeft)
+	if enemiesLeft == 0:
+		Game.win()

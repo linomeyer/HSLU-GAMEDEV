@@ -48,11 +48,6 @@ func select_target() -> void:
 	var targets = []
 	var nodesInRange = $Tower.get_overlapping_bodies()
 	
-	if nodesInRange.size() == 0:
-		$ShotTimer.stop()
-		pass
-	
-
 	for node in nodesInRange:
 		if node.is_in_group("Enemy"):
 			targets.append(node)

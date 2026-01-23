@@ -195,20 +195,20 @@ metadata/_custom_type_script = "uid://71bwbfevea0p"
 [sub_resource type="Resource" id="Resource_fw0jm"]
 script = ExtResource("3_7b0pf")
 amount = 30
-timer = 1.0
+timer = 0.75
 metadata/_custom_type_script = "uid://drycskq63k37x"
 
 [sub_resource type="Resource" id="Resource_tuknx"]
 script = ExtResource("3_7b0pf")
 amount = 30
-timer = 1.0
+timer = 0.75
 path = 1
 metadata/_custom_type_script = "uid://drycskq63k37x"
 
 [sub_resource type="Resource" id="Resource_ue1g8"]
 script = ExtResource("3_7b0pf")
 amount = 30
-timer = 1.0
+timer = 0.75
 path = 2
 metadata/_custom_type_script = "uid://drycskq63k37x"
 

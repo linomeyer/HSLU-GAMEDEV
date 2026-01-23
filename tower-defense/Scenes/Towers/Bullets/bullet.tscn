@@ -12,6 +12,7 @@ height = 34.0
 
 [node name="RedBullet" type="CharacterBody2D"]
 scale = Vector2(2, 2)
+collision_mask = 2
 script = ExtResource("1_f31jx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
