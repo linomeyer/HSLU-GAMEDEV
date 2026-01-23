@@ -8,7 +8,7 @@ var target: CharacterBody2D
 func _physics_process(_delta: float) -> void:
 	if is_instance_valid(target):
 		var targetPos = target.global_position
-		velocity = global_position.direction_to(targetPos) * 10000
+		velocity = global_position.direction_to(targetPos) * speed
 		look_at(targetPos)
 		move_and_slide()
 	else:

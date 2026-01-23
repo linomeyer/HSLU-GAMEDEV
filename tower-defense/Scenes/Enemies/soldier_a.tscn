@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2721e58mubmi"]
+[gd_scene load_steps=8 format=3 uid="uid://d2721e58mubmi"]
 
 [ext_resource type="Texture2D" uid="uid://dxcy34mgur01r" path="res://Assets/towerDefense_tile245.png" id="1_2ohga"]
 [ext_resource type="Script" uid="uid://bp4exjumbo63n" path="res://Scenes/Enemies/soldier_a.gd" id="1_u0nod"]
@@ -11,6 +11,10 @@ bg_color = Color(1, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxtcp"]
 bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="Curve" id="Curve_i3pqv"]
+_data = [Vector2(0.0153846145, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.25444275), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="SoldierA" type="CharacterBody2D" groups=["Enemy"]]
 script = ExtResource("1_u0nod")
@@ -31,3 +35,18 @@ theme_override_styles/background = SubResource("StyleBoxFlat_b5uhk")
 theme_override_styles/fill = SubResource("StyleBoxFlat_lxtcp")
 show_percentage = false
 script = ExtResource("3_b5uhk")
+
+[node name="DeathExplosion" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 100
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.75
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 400.0
+scale_amount_min = 10.0
+scale_amount_max = 20.0
+scale_amount_curve = SubResource("Curve_i3pqv")
+color = Color(0.22172925, 0.488451, 0.20576665, 1)

@@ -15,8 +15,6 @@ func _on_wave_start(wave_number: int):
 		var finish_check_timer = Timer.new()
 		finish_check_timer.wait_time = 30
 		finish_check_timer.timeout.connect(_on_finish_check_timer_timeout.bind(finish_check_timer))
-		finish_check_timer.name = "test"
-		print("i got here")
 		add_child(finish_check_timer)
 		finish_check_timer.start()
 		spawn_wave(enemy_data[wave_number])
@@ -77,7 +75,6 @@ func get_enemy(enemy_name: Enums.EnemyType) -> PackedScene:
 	
 	
 func _on_finish_check_timer_timeout(timer: Timer) -> void:
-	print("finish check timer timeout")
 	timer.wait_time = 1
 	timer.start()
 	var enemiesLeft = $TopRightPath.get_child_count() + $TopLeftPath.get_child_count() + $BottomPath.get_child_count()

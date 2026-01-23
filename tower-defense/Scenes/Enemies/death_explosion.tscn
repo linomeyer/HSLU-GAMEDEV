@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfsylhkjnh2uf"]
+
+[sub_resource type="Curve" id="Curve_i3pqv"]
+_data = [Vector2(0.0153846145, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.25444275), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="DeathExplosion" type="CPUParticles2D"]
+emitting = false
+amount = 100
+lifetime = 0.75
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 400.0
+initial_velocity_max = 800.0
+scale_amount_min = 30.0
+scale_amount_max = 60.0
+scale_amount_curve = SubResource("Curve_i3pqv")
+color = Color(0.14509805, 0.4117647, 0.75686276, 1)
