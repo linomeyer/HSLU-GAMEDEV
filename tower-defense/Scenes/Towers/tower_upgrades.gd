@@ -19,19 +19,23 @@ func _on_damage_pressed() -> void:
 		damageLevel += 1
 		$UpgradePanel/HBoxContainer/Damage/ProgressBar.value = damageLevel
 		SignalBus.towerUpgraded.emit(Enums.UpgradeType.DAMAGE, self.get_parent().name, damageLevel)
-
+	if damageLevel >= 3:
+		$UpgradePanel/HBoxContainer/Damage.disabled = true
 
 func _on_attack_speed_pressed() -> void:
 	if attackSpeedLevel < 3 && Game.gold >= attackSpeedLevelUpgradeCost:
 		Game.decreaseGoldBy(attackSpeedLevelUpgradeCost)
 		attackSpeedLevel += 1
-		$UpgradePanel/HBoxContainer/AttackSpeed/ProgressBar.value = damageLevel
+		$UpgradePanel/HBoxContainer/AttackSpeed/ProgressBar.value = attackSpeedLevel
 		SignalBus.towerUpgraded.emit(Enums.UpgradeType.ATTACK_SPEED, self.get_parent().name, attackSpeedLevel)
-
+	if attackSpeedLevel >= 3:
+		$UpgradePanel/HBoxContainer/AttackSpeed.disabled = true
 
 func _on_range_pressed() -> void:
 	if rangeLevel < 3 && Game.gold >= rangeLevelUpgradeCost:
 		Game.decreaseGoldBy(rangeLevelUpgradeCost)
 		rangeLevel += 1
-		$UpgradePanel/HBoxContainer/Range/ProgressBar.value = damageLevel
+		$UpgradePanel/HBoxContainer/Range/ProgressBar.value = rangeLevel
 		SignalBus.towerUpgraded.emit(Enums.UpgradeType.RANGE, self.get_parent().name, rangeLevel)
+	if rangeLevel >= 3:
+		$UpgradePanel/HBoxContainer/Range.disabled = true

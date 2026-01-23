@@ -5,8 +5,12 @@ var currentTargets = []
 var currentTarget: PathFollow2D
 
 @export var base_range: float = 256
-@export var base_damage: float = 20
-@export var base_attack_speed: float = 0.3
+@export var base_damage: float = 7.5
+@export var base_attack_speed: float = 1
+
+@export var damage_level_increase: float = 2.5
+@export var attack_speed_level_increase: float = 0.2
+@export var range_level_increase: float = 64
 
 var range: float
 var damage: float
@@ -94,13 +98,13 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 func _tower_upgraded(upgradeType: Enums.UpgradeType, towerName: String, upgradeLevel: int):
 	if towerName == self.name:
 		if upgradeType == Enums.UpgradeType.DAMAGE:
-			damage = base_damage + (2.5 * upgradeLevel)
+			damage = base_damage + (damage_level_increase * upgradeLevel)
 		elif upgradeType == Enums.UpgradeType.ATTACK_SPEED:
-			attack_speed = base_attack_speed + (0.25 * upgradeLevel)
+			attack_speed = base_attack_speed + (attack_speed_level_increase * upgradeLevel)
 			$ShotTimer.wait_time = 1 / attack_speed
 			
 		elif upgradeType == Enums.UpgradeType.RANGE:
-			range = base_range + (64 * upgradeLevel)
+			range = base_range + (range_level_increase * upgradeLevel)
 			$Tower/Range.shape.radius = range
 			$RangeDisplay2.queue_redraw()
 		

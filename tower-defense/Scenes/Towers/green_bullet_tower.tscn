@@ -32,6 +32,9 @@ size = Vector2(61, 48)
 scale = Vector2(2, 2)
 input_pickable = true
 script = ExtResource("1_61jyh")
+base_attack_speed = 1.5
+attack_speed_level_increase = 0.3
+range_level_increase = 64.0
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)

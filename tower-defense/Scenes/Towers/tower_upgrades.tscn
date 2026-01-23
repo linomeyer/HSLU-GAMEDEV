@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://g0lsixs3sdd5"]
+[gd_scene load_steps=11 format=3 uid="uid://g0lsixs3sdd5"]
 
 [ext_resource type="Script" uid="uid://bi3ay2m2h1ngj" path="res://Scenes/Towers/tower_upgrades.gd" id="1_o2jmu"]
 [ext_resource type="Texture2D" uid="uid://cvr60jqcrvlvb" path="res://Assets/Star.png" id="2_v05t1"]
@@ -59,6 +59,19 @@ corner_radius_bottom_left = 16
 
 [sub_resource type="LabelSettings" id="LabelSettings_uyhsf"]
 font_size = 28
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_io37r"]
+bg_color = Color(0, 0.41331667, 0.48671857, 1)
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+border_color = Color(0, 0.37254903, 0.50980395, 1)
+border_blend = true
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [node name="TowerUpgrades" type="Node"]
 script = ExtResource("1_o2jmu")
@@ -137,6 +150,7 @@ theme_override_font_sizes/font_size = 72
 theme_override_styles/normal = SubResource("StyleBoxFlat_8j6wj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_hd320")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hf6dm")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_io37r")
 
 [node name="Label" type="Label" parent="UpgradePanel/HBoxContainer/AttackSpeed"]
 layout_mode = 0
