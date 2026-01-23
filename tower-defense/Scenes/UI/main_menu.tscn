@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://cbw1fim245tg4"]
+[gd_scene load_steps=7 format=4 uid="uid://cbw1fim245tg4"]
 
 [ext_resource type="PackedScene" uid="uid://bttxijisygy02" path="res://Scenes/Maps/tile_map.tscn" id="1_o14dv"]
 [ext_resource type="Script" uid="uid://dlwtbfme68t4r" path="res://Scenes/UI/play.gd" id="2_u7lva"]
 [ext_resource type="Script" uid="uid://ble4q60qu7ss4" path="res://Scenes/UI/quit.gd" id="3_mrfpk"]
+[ext_resource type="PackedScene" uid="uid://rum187a6no2v" path="res://Scenes/UI/options_menu.tscn" id="4_options"]
+[ext_resource type="Script" uid="uid://bgcrcl5ba4apl" path="res://Scenes/UI/options_button.gd" id="5_options_btn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4pqbp"]
 font_size = 98
@@ -46,9 +48,25 @@ theme_override_font_sizes/font_size = 98
 text = "Quit"
 script = ExtResource("3_mrfpk")
 
+[node name="Options" type="Button" parent="."]
+offset_left = 1216.0
+offset_top = 1483.0
+offset_right = 1804.0
+offset_bottom = 1850.0
+theme_override_font_sizes/font_size = 98
+text = "Options"
+script = ExtResource("5_options_btn")
+
+[node name="OptionsMenu" parent="." instance=ExtResource("4_options")]
+offset_left = 512.0
+offset_top = 384.0
+offset_right = 512.0
+offset_bottom = 384.0
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1536, 1536)
 zoom = Vector2(0.35, 0.35)
 
 [connection signal="pressed" from="Play" to="Play" method="_on_pressed"]
 [connection signal="pressed" from="Quit" to="Quit" method="_on_pressed"]
+[connection signal="pressed" from="Options" to="Options" method="_on_pressed"]

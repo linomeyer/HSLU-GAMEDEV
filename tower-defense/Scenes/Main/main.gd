@@ -9,6 +9,9 @@ func _ready() -> void:
 	SignalBus.playerLostHealth.connect(_on_player_lost_health)
 	SignalBus.restart.connect(_on_restart)
 	
+	# Start background music
+	SoundManager.play_music(SoundManager.background_music_1)
+	
 func _on_tower_placed(tower: StaticBody2D) -> void:
 	$Towers.add_child(tower)
 	
@@ -20,7 +23,10 @@ func _hide_upgrade_panels(currentTowerName: String) -> void:
 
 func _on_player_lost_health() -> void:
 	if Game.health <= 0:
-		$GameOver.visible = true
+		# Play explosion sound only once when health first reaches zero
+		if not $GameOver.visible:
+			SoundManager.play_explosion_sound()
+			$GameOver.visible = true
 		
 func _on_restart() -> void:
 	get_tree().change_scene_to_file("res://Scenes/UI/main_menu.tscn")

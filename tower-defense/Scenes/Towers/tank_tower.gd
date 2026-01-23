@@ -82,6 +82,9 @@ func _on_shot_timer_timeout() -> void:
 		bulletInstance1.global_position = $Aim.global_position
 		
 		$BulletContainer.add_child(bulletInstance1)
+		
+		# Play shoot sound
+		SoundManager.play_shoot_sound($Aim.global_position)
 
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:

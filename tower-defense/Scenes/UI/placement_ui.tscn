@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://8f4un4ntpaw5"]
+[gd_scene load_steps=16 format=3 uid="uid://8f4un4ntpaw5"]
 
 [ext_resource type="PackedScene" uid="uid://bblfny1baqyxx" path="res://Scenes/UI/tower_panel.tscn" id="1_sn5lw"]
 [ext_resource type="PackedScene" uid="uid://b8htcwcmbqwl0" path="res://Scenes/Towers/green_bullet_tower.tscn" id="2_i847j"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://bno5t1ouwy4l6" path="res://Scenes/UI/gold.gd" id="3_jjdmm"]
 [ext_resource type="Texture2D" uid="uid://cfijx2v8y81od" path="res://Assets/fastForward.png" id="6_jmqu6"]
 [ext_resource type="Script" uid="uid://dxkh0ee3at60v" path="res://Scenes/UI/start_wave.gd" id="6_orh1d"]
+[ext_resource type="PackedScene" uid="uid://rum187a6no2v" path="res://Scenes/UI/options_menu.tscn" id="7_options"]
+[ext_resource type="Script" path="res://Scenes/UI/settings_button.gd" id="8_settings"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmqu6"]
 bg_color = Color(0.1764706, 0.1764706, 0.1764706, 0.8352941)
@@ -55,6 +57,19 @@ unicode = 32
 events = [SubResource("InputEventKey_j6u8b")]
 
 [node name="PlacementUI" type="CanvasLayer"]
+
+[node name="SettingsButton" type="Button" parent="."]
+offset_left = 2520.0
+offset_top = 64.0
+offset_right = 2620.0
+offset_bottom = 164.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_jmqu6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_j6u8b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e5flm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_b2u60")
+theme_override_font_sizes/font_size = 32
+text = "⚙"
+script = ExtResource("8_settings")
 
 [node name="TowerPanel" type="Panel" parent="."]
 offset_left = 2624.0
@@ -111,4 +126,7 @@ shortcut = SubResource("Shortcut_e5flm")
 icon = ExtResource("6_jmqu6")
 script = ExtResource("6_orh1d")
 
+[node name="OptionsMenu" parent="." instance=ExtResource("7_options")]
+
 [connection signal="pressed" from="StartWave" to="StartWave" method="_on_pressed"]
+[connection signal="pressed" from="SettingsButton" to="SettingsButton" method="_on_pressed"]

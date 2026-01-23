@@ -20,6 +20,7 @@ run/canvas_textures/default_texture_filter=0
 SignalBus="*res://Globals/SignalBus.gd"
 Enums="*res://Globals/Enums.gd"
 Game="*res://Globals/Game.gd"
+SoundManager="*res://Audio/SoundManager.gd"
 
 [display]
 
