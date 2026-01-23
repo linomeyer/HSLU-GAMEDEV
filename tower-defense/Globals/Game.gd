@@ -3,6 +3,7 @@ extends Node
 @export var gold = 100
 @export var health = 10
 
+var wave = 0
 var game_time = 0
 
 func decreaseHealthBy(number: int) -> void:
@@ -25,3 +26,10 @@ func reset() -> void:
 	SignalBus.goldChanged.emit()
 	SignalBus.playerLostHealth.emit()
 	SignalBus.timeChanged.emit()
+
+func startWave() -> void:
+	SignalBus.startWave.emit(wave)
+	wave += 1
+
+func win() -> void:
+	SignalBus.gameWon.emit()

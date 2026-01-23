@@ -49,4 +49,3 @@ func check_placeable() -> bool:
 				rangeDisplay.color = Color(255,0,0, 0.3)
 				rangeDisplay.queue_redraw()
 			return false
-	

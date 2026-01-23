@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://u4i4roesoays"]
+[gd_scene load_steps=7 format=4 uid="uid://u4i4roesoays"]
 
 [ext_resource type="PackedScene" uid="uid://bttxijisygy02" path="res://Scenes/Maps/tile_map.tscn" id="1_1r6ip"]
 [ext_resource type="Script" uid="uid://c6em2u1lo84sv" path="res://Scenes/Main/main.gd" id="1_p6jpk"]
-[ext_resource type="Curve2D" uid="uid://dh0tojhnururp" path="res://Scenes/Enemies/stage_1_path.tres" id="2_lixft"]
-[ext_resource type="Script" uid="uid://10qdn81gssqc" path="res://Scenes/Main/enemy_spawner.gd" id="3_5yls4"]
 [ext_resource type="PackedScene" uid="uid://8f4un4ntpaw5" path="res://Scenes/UI/placement_ui.tscn" id="4_5yls4"]
-[ext_resource type="Texture2D" uid="uid://hryy0mnei6je" path="res://Assets/Tanks/tankBody_bigRed.png" id="6_xlvfx"]
+[ext_resource type="PackedScene" uid="uid://bejn8na2fn6i8" path="res://Scenes/Enemies/Spawning/Spawner.tscn" id="7_xlvfx"]
 [ext_resource type="PackedScene" uid="uid://dcvswlw5otupe" path="res://Scenes/Towers/tank_tower.tscn" id="7_y3v7k"]
 [ext_resource type="PackedScene" uid="uid://ipq2toneri2v" path="res://Scenes/Main/game_over.tscn" id="8_y3v7k"]
 
@@ -19,25 +17,10 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAEAAUAAAAAAAEAAAAEAAUAAAAAAAIAAAAEAAU
 position = Vector2(1536, 1536)
 zoom = Vector2(0.35, 0.35)
 
-[node name="EnemySpawner" type="Node2D" parent="."]
-script = ExtResource("3_5yls4")
-
-[node name="Path2D" type="Path2D" parent="EnemySpawner"]
-curve = ExtResource("2_lixft")
-
-[node name="SpawnTimer" type="Timer" parent="EnemySpawner"]
-autostart = true
-
 [node name="Towers" type="Node2D" parent="."]
 
 [node name="PlacementUI" parent="." instance=ExtResource("4_5yls4")]
 follow_viewport_enabled = true
-
-[node name="Tank" type="Sprite2D" parent="."]
-position = Vector2(1664.0001, 1664)
-rotation = 3.1415927
-scale = Vector2(6.8306437, 5.783834)
-texture = ExtResource("6_xlvfx")
 
 [node name="TankTower" parent="." instance=ExtResource("7_y3v7k")]
 position = Vector2(1664, 1664)
@@ -47,4 +30,4 @@ rotation = 4.712389
 visible = false
 follow_viewport_enabled = true
 
-[connection signal="timeout" from="EnemySpawner/SpawnTimer" to="EnemySpawner" method="_on_spawn_timer_timeout"]
+[node name="Spawner" parent="." instance=ExtResource("7_xlvfx")]

@@ -11,3 +11,6 @@ signal goldChanged()
 signal timeChanged()
 
 signal restart()
+signal gameWon()
+
+signal startWave(waveNumber: int)

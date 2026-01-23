@@ -1,24 +1,72 @@
-[gd_scene load_steps=6 format=3 uid="uid://8f4un4ntpaw5"]
+[gd_scene load_steps=14 format=3 uid="uid://8f4un4ntpaw5"]
 
 [ext_resource type="PackedScene" uid="uid://bblfny1baqyxx" path="res://Scenes/UI/tower_panel.tscn" id="1_sn5lw"]
 [ext_resource type="PackedScene" uid="uid://b8htcwcmbqwl0" path="res://Scenes/Towers/green_bullet_tower.tscn" id="2_i847j"]
 [ext_resource type="Script" uid="uid://d3q0nhpbqi30t" path="res://Scenes/UI/health.gd" id="2_wfsy1"]
 [ext_resource type="Texture2D" uid="uid://loa65c5ytijf" path="res://Assets/towerDefense_tile249.png" id="3_eua4n"]
 [ext_resource type="Script" uid="uid://bno5t1ouwy4l6" path="res://Scenes/UI/gold.gd" id="3_jjdmm"]
+[ext_resource type="Texture2D" uid="uid://cfijx2v8y81od" path="res://Assets/fastForward.png" id="6_jmqu6"]
+[ext_resource type="Script" uid="uid://dxkh0ee3at60v" path="res://Scenes/UI/start_wave.gd" id="6_orh1d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmqu6"]
+bg_color = Color(0.1764706, 0.1764706, 0.1764706, 0.8352941)
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+expand_margin_left = 16.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6u8b"]
+bg_color = Color(0.105882354, 0.105882354, 0.105882354, 0.8117647)
+border_color = Color(0.029703315, 0.25637746, 0.49436837, 1)
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+expand_margin_left = 16.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5flm"]
+bg_color = Color(0.10747974, 0.10747974, 0.10747967, 0.8117647)
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+expand_margin_left = 16.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2u60"]
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+expand_margin_left = 16.0
+
+[sub_resource type="InputEventKey" id="InputEventKey_j6u8b"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_e5flm"]
+events = [SubResource("InputEventKey_j6u8b")]
 
 [node name="PlacementUI" type="CanvasLayer"]
 
 [node name="TowerPanel" type="Panel" parent="."]
 offset_left = 2624.0
 offset_right = 3072.0
-offset_bottom = 1536.0
+offset_bottom = 512.0
 
 [node name="FlowContainer" type="FlowContainer" parent="TowerPanel"]
 layout_mode = 0
 offset_left = 48.0
 offset_top = 64.0
 offset_right = 400.0
-offset_bottom = 1472.0
+offset_bottom = 512.0
 theme_override_constants/h_separation = 32
 theme_override_constants/v_separation = 32
 
@@ -49,3 +97,18 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 98
 text = "Gold:"
 script = ExtResource("3_jjdmm")
+
+[node name="StartWave" type="Button" parent="."]
+offset_left = 2752.0
+offset_top = 2752.0
+offset_right = 3010.0
+offset_bottom = 3010.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_jmqu6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_j6u8b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e5flm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_b2u60")
+shortcut = SubResource("Shortcut_e5flm")
+icon = ExtResource("6_jmqu6")
+script = ExtResource("6_orh1d")
+
+[connection signal="pressed" from="StartWave" to="StartWave" method="_on_pressed"]

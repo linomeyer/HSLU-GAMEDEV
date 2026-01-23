@@ -1,5 +1,6 @@
 extends Node2D
 
+
 func _ready() -> void:
 	Game.reset()
 	
@@ -7,7 +8,6 @@ func _ready() -> void:
 	SignalBus.hideOtherUpgradePanels.connect(_hide_upgrade_panels)
 	SignalBus.playerLostHealth.connect(_on_player_lost_health)
 	SignalBus.restart.connect(_on_restart)
-	
 	
 func _on_tower_placed(tower: StaticBody2D) -> void:
 	$Towers.add_child(tower)

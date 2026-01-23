@@ -1,3 +1,5 @@
+Button
+Path2D
 HBoxContainer
 Sprite2D
 Label
@@ -7,8 +9,6 @@ TextureProgressBar
 ProgressBar
 Node
 Panel
-Button
 CanvasLayer
 PathFollow2D
 VBoxContainer
-Node2D
