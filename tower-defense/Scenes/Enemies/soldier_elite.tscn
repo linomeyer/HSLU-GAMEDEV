@@ -13,6 +13,7 @@ bg_color = Color(1, 0, 0, 1)
 bg_color = Color(0, 1, 0, 1)
 
 [node name="SoldierElite" type="CharacterBody2D" groups=["Enemy"]]
+scale = Vector2(4, 4)
 script = ExtResource("1_1h6im")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
