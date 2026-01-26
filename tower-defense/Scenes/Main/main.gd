@@ -27,12 +27,19 @@ func _on_player_lost_health() -> void:
 		# Play explosion sound only once when health first reaches zero
 		if not $GameOver.visible:
 			SoundManager.play_explosion_sound()
+			SoundManager.stop_flamethrower_sound()
 			$GameOver.visible = true
+			
+			# Play DeathExplosion animation from tank tower
+			if has_node("TankTower/DeathExplosion"):
+				$TankTower/DeathExplosion.emitting = true
 		
 func _on_restart() -> void:
+	SoundManager.stop_flamethrower_sound()
 	get_tree().change_scene_to_file("res://Scenes/UI/main_menu.tscn")
 		
 func _on_game_won() -> void:
 	if not $GameWin.visible:
+		SoundManager.stop_flamethrower_sound()
 		$GameWin.visible = true
 	

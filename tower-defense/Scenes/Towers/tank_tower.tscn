@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcvswlw5otupe"]
+[gd_scene load_steps=11 format=3 uid="uid://dcvswlw5otupe"]
 
 [ext_resource type="Script" uid="uid://s4ug87xb1dt8" path="res://Scenes/Towers/tank_tower.gd" id="1_rp88v"]
 [ext_resource type="Texture2D" uid="uid://hryy0mnei6je" path="res://Assets/Tanks/tankBody_bigRed.png" id="2_06ryt"]
@@ -28,6 +28,10 @@ func _draw() -> void:
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8j6wj"]
 size = Vector2(61, 48)
+
+[sub_resource type="Curve" id="Curve_i3pqv"]
+_data = [Vector2(0.0153846145, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.25444275), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="TankTower" type="StaticBody2D"]
 scale = Vector2(2, 2)
@@ -80,6 +84,21 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TowerDetector"]
 position = Vector2(-1.5, 0)
 shape = SubResource("RectangleShape2D_8j6wj")
+
+[node name="DeathExplosion" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 100
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 300.0
+initial_velocity_max = 600.0
+scale_amount_min = 40.0
+scale_amount_max = 70.0
+scale_amount_curve = SubResource("Curve_i3pqv")
+color = Color(0.4652599, 0.08185456, 0.119342975, 1)
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]

@@ -33,6 +33,10 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if is_instance_valid(currentTarget):
 		look_at(currentTarget.global_position)
+	
+	# Update flamethrower sound position while playing
+	if $Aim/Flames.visible and SoundManager.flamethrower_player.playing:
+		SoundManager.flamethrower_player.global_position = $Aim.global_position
 
 
 func _on_tower_body_entered(body: Node2D) -> void:
@@ -42,7 +46,7 @@ func _on_tower_body_entered(body: Node2D) -> void:
 			$ShotTimer.timeout.emit()
 			$ShotTimer.start()
 			$Aim/Flames.visible = true
-			SoundManager.play_flamethrower_sound($Aim.global_position)
+			SoundManager.start_flamethrower_sound($Aim.global_position)
 
 
 func _on_tower_body_exited(body: Node2D) -> void:
@@ -57,7 +61,9 @@ func select_target() -> void:
 	
 	if nodesInRange.size() == 0:
 		$ShotTimer.stop()
-		pass
+		$Aim/Flames.visible = false
+		SoundManager.stop_flamethrower_sound()
+		return
 	
 	for node in nodesInRange:
 		if node.is_in_group("Enemy"):
@@ -79,6 +85,7 @@ func _on_shot_timer_timeout() -> void:
 	elif not $ShotTimer.paused:
 		$ShotTimer.stop()
 		$Aim/Flames.visible = false
+		SoundManager.stop_flamethrower_sound()
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_mask == 1:

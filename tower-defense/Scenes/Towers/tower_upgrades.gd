@@ -19,7 +19,6 @@ func _on_damage_pressed() -> void:
 		damageLevel += 1
 		$UpgradePanel/HBoxContainer/Damage/ProgressBar.value = damageLevel
 		SignalBus.towerUpgraded.emit(Enums.UpgradeType.DAMAGE, self.get_parent().name, damageLevel)
-		# Play upgrade sound
 		SoundManager.play_upgrade_sound(self.get_parent().global_position)
 	if damageLevel >= 3:
 		$UpgradePanel/HBoxContainer/Damage.disabled = true
@@ -30,7 +29,6 @@ func _on_attack_speed_pressed() -> void:
 		attackSpeedLevel += 1
 		$UpgradePanel/HBoxContainer/AttackSpeed/ProgressBar.value = attackSpeedLevel
 		SignalBus.towerUpgraded.emit(Enums.UpgradeType.ATTACK_SPEED, self.get_parent().name, attackSpeedLevel)
-		# Play upgrade sound
 		SoundManager.play_upgrade_sound(self.get_parent().global_position)
 	if attackSpeedLevel >= 3:
 		$UpgradePanel/HBoxContainer/AttackSpeed.disabled = true
@@ -41,7 +39,6 @@ func _on_range_pressed() -> void:
 		rangeLevel += 1
 		$UpgradePanel/HBoxContainer/Range/ProgressBar.value = rangeLevel
 		SignalBus.towerUpgraded.emit(Enums.UpgradeType.RANGE, self.get_parent().name, rangeLevel)
-		# Play upgrade sound
 		SoundManager.play_upgrade_sound(self.get_parent().global_position)
 	if rangeLevel >= 3:
 		$UpgradePanel/HBoxContainer/Range.disabled = true

@@ -25,7 +25,6 @@ func _on_gui_input(event: InputEvent) -> void:
 			towerInstance.global_position = get_global_mouse_position()
 			SignalBus.towerPlaced.emit(towerInstance)
 			Game.decreaseGoldBy(price)
-			# Play placement sound
 			SoundManager.play_place_tower_sound(towerInstance.global_position)
 			$TowerInstance.get_child(0).get_node("RangeDisplay2").hide()
 			$TowerInstance.get_child(0).queue_free()

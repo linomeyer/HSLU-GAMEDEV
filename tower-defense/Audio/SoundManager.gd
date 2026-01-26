@@ -3,6 +3,7 @@ extends Node
 var music_player: AudioStreamPlayer
 var global_sfx_player: AudioStreamPlayer
 var explosion_player: AudioStreamPlayer
+var flamethrower_player: AudioStreamPlayer2D
 
 var sfx_players: Array[AudioStreamPlayer2D] = []
 var max_sfx_players: int = 20
@@ -44,6 +45,11 @@ func _ready() -> void:
 	add_child(explosion_player)
 	explosion_player.volume_db = linear_to_db(sfx_volume)
 	
+	# dedicated flamethrower player for continuous looping sound
+	flamethrower_player = AudioStreamPlayer2D.new()
+	add_child(flamethrower_player)
+	flamethrower_player.volume_db = linear_to_db(sfx_volume)
+	
 	# Create SFX player pool
 	for i in range(max_sfx_players):
 		var player = AudioStreamPlayer2D.new()
@@ -65,7 +71,7 @@ func load_audio_resources() -> void:
 	background_music_1 = load("res://Audio/Music/685206__x1shi__video-game-music-seamless.wav")
 	background_music_2 = load("res://Audio/Music/735469__seth_makes_sounds__darksummer.wav")
 
-# Play a sound effect at a specific position (or global if position is null)
+# Play a sound effect at a specific position
 func play_sfx(stream: AudioStream, position: Vector2 = Vector2.ZERO, pitch_scale: float = 1.0) -> void:
 	if stream == null:
 		push_warning("SoundManager: Attempted to play null audio stream")
@@ -90,6 +96,27 @@ func play_shoot_sound(position: Vector2 = Vector2.ZERO) -> void:
 	
 func play_flamethrower_sound(position: Vector2 = Vector2.ZERO) -> void:
 	play_sfx(flamethrower_sound, position, 1.5)
+
+func start_flamethrower_sound(position: Vector2 = Vector2.ZERO) -> void:
+	if flamethrower_sound == null:
+		push_warning("SoundManager: Attempted to play null flamethrower sound")
+		return
+	
+	if sfx_muted:
+		return
+	
+	# Only start if not already playing
+	if flamethrower_player.playing:
+		return
+	
+	flamethrower_player.stream = flamethrower_sound
+	flamethrower_player.global_position = position
+	flamethrower_player.pitch_scale = 1.5
+	flamethrower_player.play()
+
+func stop_flamethrower_sound() -> void:
+	if flamethrower_player.playing:
+		flamethrower_player.stop()
 
 func play_upgrade_sound(position: Vector2 = Vector2.ZERO) -> void:
 	play_sfx(upgrade_sound, position)
@@ -201,5 +228,7 @@ func _update_sfx_volume() -> void:
 	var volume_db = linear_to_db(sfx_volume) if not sfx_muted else -80.0
 	global_sfx_player.volume_db = volume_db
 	explosion_player.volume_db = volume_db
+	if flamethrower_player:
+		flamethrower_player.volume_db = volume_db
 	for player in sfx_players:
 		player.volume_db = volume_db

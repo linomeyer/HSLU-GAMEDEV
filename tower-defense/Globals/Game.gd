@@ -8,7 +8,6 @@ var game_time = 0
 
 func decreaseHealthBy(number: int) -> void:
 	health -= number
-	# Play damage sound
 	SoundManager.play_damage_sound()
 	SignalBus.playerLostHealth.emit()
 	

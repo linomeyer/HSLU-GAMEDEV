@@ -83,7 +83,6 @@ func _on_shot_timer_timeout() -> void:
 		
 		$BulletContainer.add_child(bulletInstance1)
 		
-		# Play shoot sound
 		SoundManager.play_shoot_sound($Aim.global_position)
 	elif not $ShotTimer.paused:
 		$ShotTimer.stop()
