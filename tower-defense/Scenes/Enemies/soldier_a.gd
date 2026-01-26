@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed = 150
 @export var health = 25
-@export var gold_value = 80
+@export var gold_value = 2
 @onready var followPath: PathFollow2D = get_parent()
 
 func _ready() -> void:
