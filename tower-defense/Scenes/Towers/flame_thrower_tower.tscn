@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://vvk17b8gdywu"]
+
+[ext_resource type="Script" uid="uid://dap3v72d4cwtw" path="res://Scenes/Towers/flame_thrower_tower.gd" id="1_nmj4e"]
+[ext_resource type="Texture2D" uid="uid://g687gp7yj1ry" path="res://Assets/towerDefense_tile291.png" id="2_nmj4e"]
+[ext_resource type="PackedScene" uid="uid://cr2o4ke6r47h2" path="res://Scenes/Towers/flames.tscn" id="2_rjyik"]
+[ext_resource type="Script" uid="uid://dnxnq5iqk08wg" path="res://Scenes/Towers/range_display_2.gd" id="3_rjyik"]
+[ext_resource type="PackedScene" uid="uid://g0lsixs3sdd5" path="res://Scenes/Towers/tower_upgrades.tscn" id="4_7xts1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gaoe5"]
+size = Vector2(54, 31.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5owe3"]
+resource_local_to_scene = true
+radius = 256.0
+
+[sub_resource type="GDScript" id="GDScript_gaoe5"]
+script/source = "extends CollisionShape2D
+
+func _ready() -> void:
+	hide()
+
+func _draw() -> void:
+	var center = Vector2(0,0)
+	var radius = self.shape.radius
+	var color = Color(1,0,0)
+	draw_circle(center, radius, color)
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8j6wj"]
+size = Vector2(58, 39.5)
+
+[node name="FlameThrowerTower" type="StaticBody2D"]
+scale = Vector2(2, 2)
+input_pickable = true
+script = ExtResource("1_nmj4e")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(1, -0.25)
+shape = SubResource("RectangleShape2D_gaoe5")
+
+[node name="Aim" type="Marker2D" parent="."]
+position = Vector2(46.5, -1)
+
+[node name="Flames" parent="Aim" instance=ExtResource("2_rjyik")]
+visible = false
+scale = Vector2(1.2, 1)
+
+[node name="TowerSprite" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_nmj4e")
+
+[node name="Tower" type="Area2D" parent="."]
+
+[node name="Range" type="CollisionShape2D" parent="Tower"]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_5owe3")
+script = SubResource("GDScript_gaoe5")
+
+[node name="ShotTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="BulletContainer" type="Node" parent="."]
+
+[node name="RangeDisplay2" type="Node2D" parent="."]
+visible = false
+script = ExtResource("3_rjyik")
+
+[node name="Upgrade" parent="." instance=ExtResource("4_7xts1")]
+damageLevelUpgradeCost = 60
+attackSpeedLevelUpgradeCost = 60
+rangeLevelUpgradeCost = 60
+
+[node name="TowerDetector" type="Area2D" parent="."]
+process_mode = 3
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TowerDetector"]
+position = Vector2(0, -0.25)
+shape = SubResource("RectangleShape2D_8j6wj")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]
+[connection signal="body_exited" from="Tower" to="." method="_on_tower_body_exited"]
+[connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]

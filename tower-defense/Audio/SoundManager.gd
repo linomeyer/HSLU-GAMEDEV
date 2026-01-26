@@ -9,6 +9,7 @@ var max_sfx_players: int = 20
 var current_sfx_index: int = 0
 
 var shoot_sound: AudioStream
+var flamethrower_sound: AudioStream
 var upgrade_sound: AudioStream
 var button_click_sound: AudioStream
 var close_sound: AudioStream
@@ -54,6 +55,7 @@ func _ready() -> void:
 
 func load_audio_resources() -> void:
 	shoot_sound = load("res://Audio/SFX/720118__baggonotes__player_shoot1.wav")
+	flamethrower_sound = load("res://Audio/SFX/flamethrower-sound-effect-4214022.wav")
 	upgrade_sound = load("res://Audio/SFX/721514__baggonotes__points_tick2.wav")
 	button_click_sound = load("res://Audio/SFX/721503__baggonotes__button_click2.wav")
 	close_sound = load("res://Audio/SFX/704259__baggonotes__idcard_caseinsert.wav")
@@ -85,6 +87,9 @@ func play_sfx(stream: AudioStream, position: Vector2 = Vector2.ZERO, pitch_scale
 func play_shoot_sound(position: Vector2 = Vector2.ZERO) -> void:
 	var random_pitch = 1.0 + randf_range(-pitch_variation_range, pitch_variation_range)
 	play_sfx(shoot_sound, position, random_pitch)
+	
+func play_flamethrower_sound(position: Vector2 = Vector2.ZERO) -> void:
+	play_sfx(flamethrower_sound, position, 1.5)
 
 func play_upgrade_sound(position: Vector2 = Vector2.ZERO) -> void:
 	play_sfx(upgrade_sound, position)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://8f4un4ntpaw5"]
+[gd_scene load_steps=20 format=3 uid="uid://8f4un4ntpaw5"]
 
 [ext_resource type="StyleBox" uid="uid://lb1ca3ytn70u" path="res://Resources/Templates/button.tres" id="1_4kt4x"]
 [ext_resource type="PackedScene" uid="uid://bblfny1baqyxx" path="res://Scenes/UI/tower_panel.tscn" id="1_sn5lw"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://bno5t1ouwy4l6" path="res://Scenes/UI/gold.gd" id="3_jjdmm"]
 [ext_resource type="Texture2D" uid="uid://cfijx2v8y81od" path="res://Assets/fastForward.png" id="6_jmqu6"]
 [ext_resource type="Script" uid="uid://dxkh0ee3at60v" path="res://Scenes/UI/start_wave.gd" id="6_orh1d"]
+[ext_resource type="PackedScene" uid="uid://vvk17b8gdywu" path="res://Scenes/Towers/flame_thrower_tower.tscn" id="6_ptpsj"]
+[ext_resource type="Texture2D" uid="uid://g687gp7yj1ry" path="res://Assets/towerDefense_tile291.png" id="6_xev81"]
 [ext_resource type="PackedScene" uid="uid://rum187a6no2v" path="res://Scenes/UI/options_menu.tscn" id="7_options"]
 [ext_resource type="Script" uid="uid://b67a7vsrc3guc" path="res://Scenes/UI/settings_button.gd" id="8_settings"]
 [ext_resource type="Script" uid="uid://d07fuy61havke" path="res://Scenes/UI/wave_label.gd" id="10_b2u60"]
@@ -91,6 +93,12 @@ sprite = ExtResource("3_eua4n")
 [node name="RedBulletTowerPanel2" parent="TowerPanel/FlowContainer" instance=ExtResource("1_sn5lw")]
 layout_mode = 2
 price = 40
+
+[node name="FlameThrowerTowerPanel" parent="TowerPanel/FlowContainer" instance=ExtResource("1_sn5lw")]
+layout_mode = 2
+tower = ExtResource("6_ptpsj")
+price = 80
+sprite = ExtResource("6_xev81")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_left = 50.0

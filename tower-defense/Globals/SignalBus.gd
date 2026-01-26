@@ -14,3 +14,5 @@ signal restart()
 signal gameWon()
 
 signal startWave(waveNumber: int)
+
+signal flameThrowerDamage(damage: float, target: PathFollow2D)

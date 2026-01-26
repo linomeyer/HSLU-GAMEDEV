@@ -1,6 +1,6 @@
 extends Node
 
-@export var gold = 100
+@export var gold = 75
 @export var health = 10
 
 var wave = 0
@@ -21,7 +21,7 @@ func decreaseGoldBy(number: int) -> void:
 	SignalBus.goldChanged.emit()
 	
 func reset() -> void:
-	gold = 100
+	gold = 75
 	health = 10
 	game_time = 0
 	wave = 0

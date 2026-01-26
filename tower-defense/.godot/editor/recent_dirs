@@ -1,10 +1,11 @@
+C:/workspace/hslu/6/gamedev/tower-defense
+res://Scenes/Main
+res://Scenes/Enemies
 res://Scenes/Towers
+res://Scenes/UI
 res://Scenes/Towers/Bullets
 res://Resources/Templates
-res://Scenes/UI
-res://Scenes/Main
 res://Audio/Music
-res://Scenes/Enemies
 res://Resources/Spawning/Paths
 res://Globals
 res://Scenes/Maps
